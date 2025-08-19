@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState  } from "react";
 import lodingGif from "../../assets/loading.gif";
 import lodingDOT from "../../assets/loadingDOTED.gif";
 import { div } from "framer-motion/client";
@@ -39,8 +39,8 @@ function ChangePass() {
   };
 
   return (
-    <div className="min-h-screen mx-auto w-full flex-col max-w-md bg-gradient-to-br from-blue-400 via-blue-300 to-blue-200 flex justify-center items-center p-4">
-      <h4 className="text-black text-2xl">my-profile</h4>
+    <div className="min-h-screen  mx-auto w-full flex-col max-w-lg bg-gradient-to-br from-blue-400 via-blue-300 to-blue-200 flex justify-center items-center px-4">
+      <h4 className="text-black  text-2xl">my-profile</h4>
       <div className="bg-white/50 backdrop-blur-lg rounded-xl shadow-xl w-full max-w-md p-10 ">
         {/* Heading */}
         <h2 className="text-center text-black font-bold text-2xl mb-40">

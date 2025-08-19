@@ -45,7 +45,7 @@ function Wallet() {
               className=' overflow-hidden mb-3 '>
 
               <div ref={contentRef} className='border text-white  border-white p-2 rounded bg-blue-500'>
-                <p>Current Amount :-45000 </p>
+                <p className='font-bold'>Current Amount :- ****** rupees </p>
               </div>
             </motion.div>
           )}
@@ -55,7 +55,8 @@ function Wallet() {
           <div className='flex flex-col justify-center '>
             <span>Total_fees :-</span>
             <span> Paid fees :-</span>
-            <span>Date :- </span>    time :-
+            <span>Date :- </span>   
+            <span>time :-</span> 
           </div>
         </div>
         {/* Fees reminder  */}
@@ -70,7 +71,7 @@ function Wallet() {
                 animate={{ height: height, opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className='overflow-y-auto shadow-2xl border rounded border-blue-500 pb-20 mt-1'
+                className='overflow-y-auto no-scrollbar shadow-2xl border rounded border-blue-500 pb-20 mt-1'
               >
                 <p>📅 Due Date: 25 Aug 2025</p>
                 <p>💰 Amount: ₹5,000</p>
@@ -91,7 +92,7 @@ function Wallet() {
                 animate={{ height: height, opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.4, ease: "easeInOut" }}
-                className='overflow-y-auto  border rounded border-blue-500 pb-20 mt-1'
+                className='overflow-y-auto no-scrollbar border rounded border-blue-500 pb-20 mt-1'
               >
                 <p>💸Total:- 52000 </p>
                 <p>💰Refund :- 25000</p>
@@ -117,7 +118,7 @@ function Wallet() {
                 <p>College anual event :-</p>
                 <p>Special event :-</p>
                 <p>Cultural event:-</p>
-                <p>Spoets event :-</p>
+                <p>Sports event :-</p>
 
               </motion.div>
             )}

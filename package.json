@@ -1,8 +1,8 @@
 {
-  "name":"react-app",
-  "version":"1.0.0",
-  "private":"true",
-  "homepage": "https://nikhil-tiwari1419.github.io/rtmnuStudentApp",
+  "name": "react-app",
+  "homepage": "https://nikhil-tiwari1419.github.io/RTMNU-STudent_App/",
+  "version": "1.0.0",
+  "private": "true",
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
     "framer-motion": "^12.23.12",
@@ -12,13 +12,13 @@
     "tailwindcss": "^4.1.11"
   },
   "scripts": {
-    "dev":"vite",
-    "build":"vite build",
-    "preview":"vite preview",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d dist"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "gh-pages":"^6.0.0"
+    "gh-pages": "^6.3.0"
   }
 }

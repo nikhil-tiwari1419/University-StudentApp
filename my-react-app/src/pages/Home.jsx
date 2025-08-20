@@ -17,6 +17,7 @@ import { MdSunny } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
+import { div } from "framer-motion/client";
 
 function Home() {
   const images = [img1, img2, img3, img4, img5, img6, img7];
@@ -33,7 +34,8 @@ function Home() {
   let navigation = useNavigate();
 
   const { theme, toggleTheme } = useTheme(); // ✅ ThemeContext se theme state aa rahi hai
-
+  const [AboutInfo, setAboutInfo] = useState(false);
+  const [ContactInfo, setContactInfo] = useState(false);
   return (
     <div
       className={`overflow-y-auto h-full mx-auto max-w-md w-full min-h-screen px-4 py-6 space-y-6 pb-20 transition-all duration-500 
@@ -76,16 +78,42 @@ function Home() {
             </span>
 
             {/* About Developer */}
-            <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex">
+            <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex"
+              onClick={() => setAboutInfo(!AboutInfo)} //tap moible
+              onMouseEnter={()=> setAboutInfo(true)} // hover desktop
+              onMouseMove={()=> setAboutInfo(false)} //hovet khatam 
+            >
               <IoIosContact className="text-3xl mx-2" />
+
               About Developer
             </span>
+            {AboutInfo &&(
+              <div className="absolute left-17 mt-2 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
+                <p className="font-semibold"> Nikhil Tiwari</p>
+                <a href="https://github.com/nikhil-tiwari1419"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                    className="text-emerald-600 font-medium hover:underline block mt-2"
+                    >🔗 Github profile</a>
+              </div>
+            )}
 
             {/* Contact */}
-            <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex">
+            <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex"
+            onClick={() => setContactInfo(!ContactInfo)} //tap moible
+              onMouseEnter={()=> setContactInfo(true)} // hover desktop
+              onMouseMove={()=> setContactInfo(false)} //hovet khatam
+            >
               <BsFillTelephoneForwardFill className="text-2xl mx-3" />
               Contact
             </span>
+             {ContactInfo &&(
+              <div className="absolute left-17 mt-2 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
+                <p className="font-semibold"> Nikhil Tiwari</p>
+                <p>Ph: 7057320974</p>
+                <p>Add:- Nagpur maharastra</p>
+              </div>
+            )}
           </div>
         )}
       </header>

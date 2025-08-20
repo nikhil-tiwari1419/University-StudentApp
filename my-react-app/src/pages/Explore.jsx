@@ -39,31 +39,35 @@ function Explore() {
 
          <h2 className='text-lg font-semibold max-w-md mx-3  p-4'>Schemas</h2>
          <div className='border h-80 mx-3 overflow-y-auto no-scrollbar rounded-xl '>
-            {[
-               "Student Assistance Fund",
-               "Mata Manjulabai Student",
-               "Rashtrasant Tukdoji Maharaj Earn and Learn Scheme",
-               "Savitribai Phule Girls’ Travel Fare Concession Scheme",
-               "Best Student Award",
-               "Best Student Cadet Award",
-               "Best Cultural Activity Award",
-               "Student Skill Development Scheme",
-               "College Student Responsibility Fund Scheme (CSR)",
-               "Student Insurance Scheme"
-            ].map((n) => (
+            <div className='flex flex-col'> 
 
-               <div
-                  key={n}
-                  className={`border cursor-pointer rounded mx-3 p-2 m-2 h-20 text-center text-xl 
+            {[
+              {name:"Student Assistance Fund",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-1.pdf"} ,
+              { name:"Mata Manjulabai Student",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-2.pdf"},
+              { name:"Rashtrasant Tukdoji Maharaj Earn and Learn Scheme",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-3.pdf"},
+              { name:"Savitribai Phule Girls’ Travel Fare Concession Scheme",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-4.pdf"},
+              { name:"Best Student Award",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-5A.pdf"},
+              { name:"Best Student Cadet Award",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-5B.pdf"},
+              { name:"Best Cultural Activity Award",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-5C.pdf"},
+              { name:"Student Skill Development Scheme",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-6.pdf"},
+              { name:"College Student Responsibility Fund Scheme (CSR)"},
+              { name:"Student Insurance Scheme",url:"https://embeddedcreation.in/rtmnu/uploaded_files/YOJANA-9.pdf"},
+            ].map((items , index) => (
+
+               <a
+                  key={index}
+                  href={items.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`border cursor-pointer rounded-2xl mx-3 p-2 m-2 h-20 flex justify-center space-x-3 text-center text-xl 
                   ${theme === "dark"
                         ? "border-gray-500 bg-gray-400 text-black"
-                        : "text-blue-800 border-blue-400 bg-blue-100"}`}
+                        : "text-blue-800 border-blue-400 bg-red-100"}`}
                >
-                  {n}
-               </div>
-
-
+                  {items.name}
+               </a>
             ))}
+            </div>
          </div>
 
          <h2 className='text-lg font-semibold max-w-md mx-3  p-4'>Placement and Important Links</h2>

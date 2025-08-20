@@ -17,7 +17,7 @@ import PrivacyPolicy from "./pages/Components/privacyPolicy";
 import Wallet from "./pages/Components/Wallet";
 import Help from "./pages/Components/Help";
 import ChangePass from "./pages/Components/ChangePass";
-import Langauge from "./pages/Components/langauge";
+// import Langauge from "./pages/Components/langauge";
 import View from "./pages/Components/View";
 
 
@@ -25,7 +25,7 @@ import View from "./pages/Components/View";
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/University-StudentApp">
       <Routes>
         {/* get started page hai ye  */}
         <Route path="/" element={<Header />} />
@@ -48,7 +48,7 @@ function App() {
           <Route path="Wallet" element={<Wallet />} />
           <Route path="Help" element={<Help />} />
           <Route path="ChangePass" element={<ChangePass />} />
-          <Route path="langauge" element={<Langauge />} />
+          {/* <Route path="langauge" element={<Langauge />} /> */}
           <Route path="View" element={<View/>}/>
         </Route>
       </Routes>

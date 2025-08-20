@@ -25,9 +25,9 @@ function Profile() {
   const handleGetHelp = () => {
     navigate("/App/Help")
   }
-  const hangelLangauge = () => {
-    navigate("/App/langauge")
-  }
+  // const hangelLangauge = () => {
+  //   navigate("/App/langauge")
+  // }
   const handlepass = () => {
     navigate("/App/ChangePass")
   }
@@ -47,13 +47,13 @@ function Profile() {
           {/* pencil thi yaha per */}
         </div>
         <h3 className={`text-xl font-bold mt-2 ${theme === "dark" ? "text-white" : "text-black"}`}>Brime O'corno</h3>
-        <p className="text-sm text-gray-600">BrimeO'corno@mail.com</p>
+        <p className="text-sm text-yellow-500">BrimeO'corno@mail.com</p>
       </div>
       <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-2xl shadow-2xl'>
         <MenuItem icon={<FaFileInvoice />} label="My info" onClick={handleGetMyinfo}   theme={theme}/>
         <MenuItem icon={<FaLock />} label="Change password" onClick={handlepass}  theme={theme} />
         <MenuItem icon={<FaWallet />} label="Wallet" onClick={handleGetWallet}  theme={theme} />
-        <MenuItem icon={<FaGlobe />} label="langauge" onClick={hangelLangauge}   theme={theme}/>
+        {/* <MenuItem icon={<FaGlobe />} label="langauge" onClick={hangelLangauge}   theme={theme}/> */}
         <MenuItem icon={<MdPrivacyTip />} label="Privacy Policy" onClick={handelGetPrivacy}  theme={theme} />
       </div>
       <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-2xl shadow-2xl'>

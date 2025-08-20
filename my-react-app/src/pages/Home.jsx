@@ -88,7 +88,7 @@ function Home() {
               About Developer
             </span>
             {AboutInfo &&(
-              <div className="absolute left-17 mt-2 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
+              <div className="absolute left-17 mt-20 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
                 <p className="font-semibold"> Nikhil Tiwari</p>
                 <a href="https://github.com/nikhil-tiwari1419"
                    target="_blank"
@@ -108,10 +108,11 @@ function Home() {
               Contact
             </span>
              {ContactInfo &&(
-              <div className="absolute left-17 mt-2 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
+              <div className="absolute left-17 mt-26 w-78 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
                 <p className="font-semibold"> Nikhil Tiwari</p>
                 <p>Ph: 7057320974</p>
                 <p>Add:- Nagpur maharastra</p>
+                <p>Email-Id:-nikhiltiwari1425@gmail.com</p>
               </div>
             )}
           </div>

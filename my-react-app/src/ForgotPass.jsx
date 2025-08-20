@@ -22,7 +22,7 @@ function ForgotPass() {
                 >
                     <BsArrowLeftShort className='text-black text-3xl cursor-pointer' />
                 </button>
-                Forgot  - passWord
+                Forgot - passWord
             </div>
             <div className=' border rounded-4xl p-3 bg-violet-400 items-center mb-6 flex-col flex'>
                 <img src={ForgootPassword} className='h-25' alt="password img " />

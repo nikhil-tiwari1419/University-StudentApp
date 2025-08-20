@@ -141,7 +141,7 @@ function Home() {
 
         {/* Search Box */}
         <div className="flex items-center space-x-3 w-full max-w-md mt-5">
-          <div className="p-2 border rounded-2xl flex items-center cursor-pointer">
+          <div className="p-2 border rounded-2xl  transform translate active:translate-y-1 flex items-center cursor-pointer">
             Search
           </div>
           <div className="flex items-center flex-grow gap-1.5 border border-gray-400 rounded-md py-2 px-3">

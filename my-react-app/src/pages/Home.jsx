@@ -46,7 +46,7 @@ function Home() {
     >
       {/* Header */}
       <header
-        className={`w-full rounded-4xl flex items-center px-2 ${theme === "dark"
+        className={`w-full  rounded-4xl flex items-center px-2 ${theme === "dark"
           ? "bg-gray-800 text-white"
           : "bg-blue-300 text-black"
           }`}

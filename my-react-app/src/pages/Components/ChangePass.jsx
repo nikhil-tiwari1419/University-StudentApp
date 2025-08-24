@@ -127,7 +127,7 @@ function ChangePass() {
               "Update Password"
             ) : (
               <img src={lodingDOT}
-                className="h-7"
+                className="h-8"
                 alt="loding......" />
             )}
           </button>

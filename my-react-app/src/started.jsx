@@ -7,8 +7,7 @@ import { FaSquareXTwitter } from "react-icons/fa6";
 
 function Header() {
 
-  let navigate = useNavigate();
-
+let navigate = useNavigate();
 
   const handleGetStarted = () => {
     navigate("/Signin");

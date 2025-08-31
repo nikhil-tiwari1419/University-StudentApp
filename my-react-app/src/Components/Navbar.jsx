@@ -1,19 +1,22 @@
-import React from 'react'
+
 import { NavLink } from "react-router-dom";
 import { BiHome } from "react-icons/bi";
 import { CgProfile } from "react-icons/cg";
 import { IoSearchSharp } from "react-icons/io5";
 import { MdMenuBook } from "react-icons/md";
-import { div } from 'framer-motion/client';
+import { useTheme } from '../context/ThemeContext';
+
 
 function Navbar() {
+    const { theme } = useTheme();
+  
   return (
-    <div className='fixed bottom-0 py-3  bg-gray-200 w-full shadow px-1'>
-    <nav className="mx-auto w-full px-7 flex font-sans max-w-md shadow justify-between items-center">
+    <div className='fixed bottom-0  w-full shadow '>
+    <nav className={`mx-auto w-full px-7 p-3 rounded flex font-sans max-w-md shadow justify-between items-center ${theme === "dark" ? "bg-gray-400 text-white" : "bg-gray-300"}`}>
       <NavLink
         to="/App/Home"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-900" : "text-gray-700"
+          `text-center flex flex-col  no-underline hover:underline items-center ${isActive ? "text-blue-600" : "text-gray-900"
           }`
         }
       >
@@ -24,7 +27,7 @@ function Navbar() {
       <NavLink
         to="/App/Search"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-900" : "text-gray-700"
+          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-600" : "text-gray-900"
           }`
         }
       >
@@ -35,7 +38,7 @@ function Navbar() {
       <NavLink
         to="/App/Explore"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-900" : "text-gray-700"
+          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-600" : "text-gray-900"
           }`
         }
       >
@@ -46,7 +49,7 @@ function Navbar() {
       <NavLink
         to="/App/Profile"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-900" : "text-gray-700"
+          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-600" : "text-gray-900"
           }`
         }
       >
@@ -60,3 +63,5 @@ function Navbar() {
 }
 
 export default Navbar;
+
+// 

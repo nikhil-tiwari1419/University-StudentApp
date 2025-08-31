@@ -33,7 +33,7 @@ function Profile() {
   }
 
   return (
-    <div className={`min-h-screen mx-auto max-w-md w-full pb-20 rounded ${theme === "dark" ? "bg-gray-600 text-white" : "bg-gradient-to-b from-blue-300 via-violet-200 to-white"}`}>
+    <div className={`min-h-screen mx-auto max-w-md w-full pb-20 rounded ${theme === "dark" ? "bg-gray-800 text-white" : "bg-gradient-to-b from-blue-300 via-violet-200 to-white"}`}>
       <h2 className={`text-center text-xl font-semibold pt-5 pb-3 ${theme === 'dark' ? "text-white ":"text-black"}`}> My Profile</h2>
 
 
@@ -69,7 +69,7 @@ function Profile() {
                 onChange={() => setNotificationsOn(!notificationOn)}
                 className='sr-only peer'
               />
-              <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer dark:bg-gray-600 peer-checked:bg-blue-500 
+              <div className="w-11 h-6 bg-gray-300 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:bg-blue-500 
               after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 
               after:transition-all peer-checked:after:translate-x-full peer-checked:after:border-white"></div>
 
@@ -92,7 +92,7 @@ const MenuItem = ({ icon, label, color, onClick, rightContent,theme }) => (
       {rightContent ? (
         rightContent
       ) : (onClick && (
-        <button onClick={onClick} className={`${theme === "dark" ? 'hover:text-white hover:rotate-180 transition-transform duration-300 hover:cursor-pointer'  :'hover:text-blue-500 hover:rotate-180 transition-transform duration-300 hover:cursor-pointer'}`}>
+        <button onClick={onClick} className={`${theme === "dark" ? ' text-blue-500 hover:text-white hover:rotate-180 transition-transform duration-300 hover:cursor-pointer'  :'hover:text-blue-500 hover:rotate-180 transition-transform duration-300 hover:cursor-pointer'}`}>
           <FaRegArrowAltCircleRight />
         </button>
       )

@@ -1,7 +1,7 @@
 import React, { useState  } from "react";
 import lodingGif from "../../assets/loading.gif";
-import lodingDOT from "../../assets/loadingDOTED.gif";
-import { div } from "framer-motion/client";
+// import lodingDOT from "../../assets/loadingDOTED.gif";
+// import { div } from "framer-motion/client";
 
 function ChangePass() {
   const [email, setEmail] = useState("");
@@ -126,7 +126,7 @@ function ChangePass() {
             {!isSubmit ? (
               "Update Password"
             ) : (
-              <img src={lodingDOT}
+              <img src={lodingGif}
                 className="h-8"
                 alt="loding......" />
             )}

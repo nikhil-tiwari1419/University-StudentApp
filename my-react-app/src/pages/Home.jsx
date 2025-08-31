@@ -17,9 +17,45 @@ import { MdSunny } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
-import { div } from "framer-motion/client";
+
 
 function Home() {
+  //................College  search function .............................
+  const [query, setQuery] = useState("");
+  const [colleges, setColleges] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
+
+ // fetching JSON file 
+ useEffect(() =>{
+  fetch("https://raw.githubusercontent.com/nikhil-tiwari1419/CollegeData/main/College.json")
+  .then((res)=> res.json())
+  .then((data)=> setColleges(data))
+  .catch((err)=> console.error("Error fetching json",err));
+ }, []);
+ 
+
+  const handleChange = (e)=>{
+    const value = e.target.value;
+    setQuery(value);
+
+    if(value.length>0){
+      const filtered = colleges.filter((colleges)=>
+      colleges.name.toLowerCase().includes(value.toLowerCase())
+    )
+    .sort((a, b)=>a.name.localeCompare(b.name));
+
+    setSuggestions(filtered);
+    } else{
+      setSuggestions([]);
+    }
+
+  };
+  const handeleSelect = (url)=>{
+      window.open(url,"_blank");
+  };
+  
+//. .......................images section .........................
+
   const images = [img1, img2, img3, img4, img5, img6, img7];
   const [currentImage, setCurrentImage] = useState(0);
 
@@ -29,6 +65,8 @@ function Home() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
+
+  // ....................slidebar theme .....................
 
   const [open, setOpen] = useState(false);
   let navigation = useNavigate();
@@ -47,7 +85,7 @@ function Home() {
       {/* Header */}
       <header
         className={`w-full  rounded-4xl flex items-center px-2 ${theme === "dark"
-          ? "bg-gray-800 text-white"
+          ? "bg-gray-900 text-white"
           : "bg-blue-300 text-black"
           }`}
       >
@@ -57,7 +95,7 @@ function Home() {
 
         {open && (
           <div
-            className={`fixed left-0 pt-3 p-3 top-4 rounded-r-2xl flex flex-col h-70 w-64 transform transition-transform duration-500 ease-in-out 
+            className={`fixed z-50 left-0 pt-3 p-3 top-4 rounded-r-2xl flex flex-col h-70 w-64 transform transition-transform duration-500 ease-in-out 
             ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}
             ${open ? "translate-x-0" : "-translate-x-full"}`}
           >
@@ -88,7 +126,7 @@ function Home() {
               About Developer
             </span>
             {AboutInfo &&(
-              <div className="absolute left-17 mt-20 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
+              <div className="absolute left-17 mt-17 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
                 <p className="font-semibold"> Nikhil Tiwari</p>
                 <a href="https://github.com/nikhil-tiwari1419"
                    target="_blank"
@@ -108,11 +146,11 @@ function Home() {
               Contact
             </span>
              {ContactInfo &&(
-              <div className="absolute left-17 mt-26 w-78 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
+              <div className="absolute left-17 mt-20 w-78 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
                 <p className="font-semibold"> Nikhil Tiwari</p>
-                <p>Ph: 7057320974</p>
-                <p>Add:- Nagpur maharastra</p>
-                <p>Email-Id:-nikhiltiwari1425@gmail.com</p>
+                <p>Ph📞: 7057320974</p>
+                <p>Add📍:- Nagpur maharastra</p>
+                <p>Email-Id📩:-nikhiltiwari1425@gmail.com</p>
               </div>
             )}
           </div>
@@ -136,33 +174,48 @@ function Home() {
           <h2 className="text-2xl font-bold">Hello, Brime </h2>
         </div>
         <p className="text-sm pt-2 py-2 px-10 flex items-center">
-          Find the Colleges you want!
+          Find Colleges Affilited by RTMNU !
         </p>
 
         {/* Search Box */}
-        <div className="flex items-center space-x-3 w-full max-w-md mt-5">
-          <div className="p-2 border rounded-2xl  transform translate active:translate-y-1 flex items-center cursor-pointer">
+        <div className="flex flex-col w-fullrelative max-w-md mt-5">
+          {/* <div className="p-2 border rounded-2xl  transform translate active:translate-y-1 flex items-center cursor-pointer">
             Search
-          </div>
-          <div className="flex items-center flex-grow gap-1.5 border border-gray-400 rounded-md py-2 px-3">
+          </div> */}
+          <div className="flex items-center flex-grow gap-1.5 border border-gray-400 rounded-md py-2 px-3 ">
             <FaSearch className="text-sm items-center" />
             <input
               type="text"
-              placeholder="Search"
+              value={query}
+              onChange={handleChange}
+              placeholder="Search college..."
               className="w-full outline-none text-sm bg-transparent"
             />
+            </div>
+            {suggestions.length>0 &&(
+              <ul className="border border-gray-300 rounded-lg mt-2 h-40 overflow-y-auto no-scrollbar shadow-lg">
+                {suggestions.map((college,index)=>(
+                  <li
+                  key={index}
+                  onClick={() =>handeleSelect(college.url)}
+                  className="p-2 m-2 hover:bg-gray-200 hover:text-black hover:rounded cursor-pointer">
+                    {college.name}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
-      </div>
+    
 
       {/* College Images Carousel */}
       <div
-        className={`relative mx-auto w-full max-w-md rounded-xl h-60 ${theme === "dark"
+        className={`relative mx-auto w-full max-w-md rounded-xl z-0 h-60 ${theme === "dark"
           ? "bg-gray-700"
           : "bg-blue-100"
           }`}
       >
-        <h4 className="text-xl text-center font-bold py-2 z-20 relative">
+        <h4 className="text-xl text-center font-bold py-2 z-0  relative">
           RTMNU College and University Nagpur
         </h4>
         {images.map((image, index) => (
@@ -184,7 +237,7 @@ function Home() {
         </span>
       </div>
 
-      <div className="flex overflow-x-auto no-scrollbar">
+      <div className="flex z-0 overflow-x-auto no-scrollbar">
         <CategoryCard title="B.Tech / B.E" bg="bg-pink-300" />
         <CategoryCard title="BCA / MCA" bg="bg-green-300" />
         <CategoryCard title="MBA" bg="bg-blue-300" />
@@ -210,7 +263,7 @@ function Home() {
             className={`border rounded h-auto cursor-pointer p-2 m-3 
               ${theme === "dark" ? "border-gray-500 bg-gray-200 text-black" : "border-gray-400 bg-white text-black"}`}
           >
-            {n}
+            Notification {n}
           </div>
         ))}
       </div>

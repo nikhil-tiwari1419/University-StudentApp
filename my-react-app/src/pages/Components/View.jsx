@@ -16,7 +16,7 @@ function View() {
 
   return (
     <div
-      className={`min-h-screen mx-auto mx-w-md w-full pb-20 rounded :
+      className={`min-h-screen mx-auto mx-w-md w-full pb-20 rounded 
   ${theme === "dark"
           ? "bg-gray-900 text-white" : "text-black bg-gradient-to-b from-blue-200 via-violet-100 to-white"
         } `}>

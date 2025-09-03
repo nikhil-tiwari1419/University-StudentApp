@@ -85,7 +85,7 @@ function Home() {
       {/* Header */}
       <header
         className={`w-full  rounded-4xl flex items-center px-2 ${theme === "dark"
-          ? "bg-gray-900 text-white"
+          ? "bg-gray-800 text-white"
           : "bg-blue-300 text-black"
           }`}
       >
@@ -237,7 +237,7 @@ function Home() {
         </span>
       </div>
 
-      <div className="flex z-0 overflow-x-auto no-scrollbar">
+      <div className="flex z-0 overflow-x-auto  no-scrollbar">
         <CategoryCard title="B.Tech / B.E" bg="bg-pink-300" />
         <CategoryCard title="BCA / MCA" bg="bg-green-300" />
         <CategoryCard title="MBA" bg="bg-blue-300" />
@@ -273,7 +273,7 @@ function Home() {
 
 const CategoryCard = ({ title, bg }) => (
   <div
-    className={`min-w-[120px] h-[100px] ${bg} mx-auto w-full max-w-md cursor-pointer flex items-center justify-center rounded-xl shadow-md px-5 text-center`}
+  className={`min-w-[120px] h-[100px] ${bg} mx-auto w-full max-w-md cursor-pointer flex items-center justify-center  rounded-xl shadow-md px-5 text-center`}
   >
     <span className="text-xl">{title}</span>
   </div>

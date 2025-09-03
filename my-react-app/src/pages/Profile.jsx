@@ -3,7 +3,9 @@ import ProfileImg from "../assets/undraw_young-man.png"
 import { useTheme } from '../context/ThemeContext';
 import { useNavigate } from "react-router-dom";
 import { MdPrivacyTip } from "react-icons/md";
-import { FaGlobe } from "react-icons/fa";
+import { FaAddressCard } from "react-icons/fa";
+
+
 import { FaRegArrowAltCircleRight, FaWallet, FaBell, FaQuestionCircle, FaSignOutAlt, FaFileInvoice, FaLock } from "react-icons/fa";
 
 function Profile() {
@@ -25,9 +27,9 @@ function Profile() {
   const handleGetHelp = () => {
     navigate("/App/Help")
   }
-  // const hangelLangauge = () => {
-  //   navigate("/App/langauge")
-  // }
+  const hangelAboutus = () => {
+    navigate("/App/AboutUs")
+  }
   const handlepass = () => {
     navigate("/App/ChangePass")
   }
@@ -53,7 +55,7 @@ function Profile() {
         <MenuItem icon={<FaFileInvoice />} label="My info" onClick={handleGetMyinfo}   theme={theme}/>
         <MenuItem icon={<FaLock />} label="Change password" onClick={handlepass}  theme={theme} />
         <MenuItem icon={<FaWallet />} label="Wallet" onClick={handleGetWallet}  theme={theme} />
-        {/* <MenuItem icon={<FaGlobe />} label="langauge" onClick={hangelLangauge}   theme={theme}/> */}
+        <MenuItem icon={<FaAddressCard />} label="About Us" onClick={hangelAboutus}   theme={theme}/>
         <MenuItem icon={<MdPrivacyTip />} label="Privacy Policy" onClick={handelGetPrivacy}  theme={theme} />
       </div>
       <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-2xl shadow-2xl'>

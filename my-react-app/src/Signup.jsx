@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import lodingGif from "./assets/loading.gif";
-import SignupImg from "./assets/undraw_sign-up.png"
+import SignupImg from "./assets/undraw_sign-up.png";
 import { useNavigate } from "react-router-dom";
-import { button } from 'framer-motion/client';
+
+import { FaEye } from "react-icons/fa6";
+import { FaEyeSlash } from "react-icons/fa6";
+// import { button } from 'framer-motion/client';
 
 function Signup() {
 
@@ -10,7 +13,12 @@ function Signup() {
 
   const handleGetSignin = () => {
     navigation("/Signin")
+
   };
+  const [showPassword ,setShowPassword]= useState(false);
+  const togglePasswordVisibility = () =>{
+     setShowPassword(prev => !prev)
+    };
 
   const [Email, setEmail] = useState("");
   const [OTP, setOTP] = useState("");
@@ -24,21 +32,18 @@ function Signup() {
     setPassword(value);
 
     if (regex.test(value)) {
-      if (value.length < 8) {
-        setError("password must be at least 8  charactors  ");
+      if (value.length < 8 || value.length > 10) {
+        setError("password must be at least 8 characters or not more than 10 characters.");
         setValidPassowrd(false);
       }
-      else if (value.length > 12) {
-        setError("Password cannot be more than 12 charactors .");
-        setValidPassowrd(false);
-      } else {
+      else {
         setError("")
         setValidPassowrd(true);
       }
     }
   };
-  const handleSignUp = () => {
-    alert("Sign UP Succesfull !!")
+  const handleGetSignUp = () => {
+    alert("SignUP Succesfull !!")
   }
 
   const [isVerify, setVerify] = useState(false);
@@ -59,10 +64,11 @@ function Signup() {
 
         <form className="space-y-4">
           {/* <h3 className='text-black'>.....Create password..... </h3> */}
-          <div>
+          <div className="relative">
             <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
+              
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={passoword}
               onChange={setPasswordd}
               placeholder="Enter your password "
@@ -71,6 +77,12 @@ function Signup() {
               title="Password must be at least 6 characters long and contain only letters and numbers"
               className={`text-black w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ${error ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-indigo-400"}`}
             />
+           <div
+            onClick={togglePasswordVisibility}
+            className='absolute inset-y-11 right-4 flex items-center cursor-pointer text-gray-600'
+           >
+              {showPassword ? <FaEye /> : <FaEyeSlash />}
+           </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
@@ -128,12 +140,17 @@ function Signup() {
               className="text-black w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400"
             />
           </div>
-          <button onClick={handleGetSignin}
+          <button onClick={() => {
+            handleGetSignUp();
+            setTimeout(() => {
+              navigation("/Signin")
+            }, 1000);
+          }}
             type="button"
             disabled={!isValidPassword}
             className={`w-full py-2 rounded-lg font-semibold transition ${isValidPassword
-                ? "bg-indigo-500 text-white hover:bg-indigo-600"
-                : "bg-gray-400 text-gray-700 cursor-not-allowed"
+              ? "bg-indigo-500 text-white hover:bg-indigo-600"
+              : "bg-gray-400 text-gray-700 cursor-not-allowed"
               }`}
           >
             Sign Up

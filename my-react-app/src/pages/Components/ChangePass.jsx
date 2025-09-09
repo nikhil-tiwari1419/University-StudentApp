@@ -1,12 +1,21 @@
-import React, { useState  } from "react";
+import React, { useState } from "react";
 import lodingGif from "../../assets/loading.gif";
-// import lodingDOT from "../../assets/loadingDOTED.gif";
-// import { div } from "framer-motion/client";
+import { useTheme } from "../../context/ThemeContext";
+
+
+import { FaEye } from "react-icons/fa6";
+import { FaEyeSlash } from "react-icons/fa6";
 
 function ChangePass() {
   const [email, setEmail] = useState("");
   const [OTP, setOTP] = useState("");
   const [newPass, setNewPass] = useState("");
+
+  const [seePassword, setSeePassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setSeePassword((prev) => !prev);
+  };
+
 
   const [isVerify, setVerify] = useState(false);
 
@@ -30,17 +39,21 @@ function ChangePass() {
     }, 2000);
   }
 
+  const { theme } = useTheme();
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Email:", email);
     console.log("OTP:", OTP);
     console.log("New Password:", newPass);
+
     // API call yaha karein
   };
 
   return (
-    <div className="min-h-screen  mx-auto w-full flex-col max-w-lg bg-gradient-to-br from-blue-400 via-blue-300 to-blue-200 flex justify-center items-center px-4">
-      <h4 className="text-black  text-2xl">my-profile</h4>
+    <div className={`min-h-screen px-10 mx-auto w-full max-w-lg ${theme === "dark" ? "bg-gray-800 text-white" : "app-background text-black"} pb-20`}>
+
+      <h4 className="text-black  text-2xl items-center flex flex-col mb-4 pt-3">my-profile</h4>
       <div className="bg-white/50 backdrop-blur-lg rounded-xl shadow-xl w-full max-w-md p-10 ">
         {/* Heading */}
         <h2 className="text-center text-black font-bold text-2xl mb-40">
@@ -89,7 +102,7 @@ function ChangePass() {
 
           {/* OTP */}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1 mt-40">
+            <label className="block text-sm font-medium text-gray-700 mb-1 mt-25">
               OTP
             </label>
             <input
@@ -103,18 +116,24 @@ function ChangePass() {
           </div>
 
           {/* New Password */}
-          <div>
+          <div className="relative">
             <label className="block text-sm font-medium text-gray-700 mb-1">
               New Password
             </label>
             <input
-              type="password"
+              type={seePassword ? "text" : "password"}
               value={newPass}
               onChange={(e) => setNewPass(e.target.value)}
               className="w-full border text-black rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter new password"
               required
             />
+            <div
+              onClick={togglePasswordVisibility}
+              className='absolute inset-y-11.5 right-5 flex items-center cursor-pointer text-gray-600'
+            >
+              {seePassword ? <FaEye /> : <FaEyeSlash />}
+            </div>
           </div>
 
           {/* Submit Button */}

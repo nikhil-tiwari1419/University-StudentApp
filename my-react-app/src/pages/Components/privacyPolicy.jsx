@@ -3,7 +3,7 @@ import rtmnuImg from "../../assets/rtmnu.png"
 
 function privacyPolicy() {
   return (
-    <div className='min-h-screen mx-auto w-full max-w-md px-6 py-5 text-black bg-gradient-to-b from-blue-200 via-violet-100 to-blue-200 pb-10'>
+    <div className='min-h-screen mx-auto w-full max-w-md px-6 py-5 text-black app-background  pb-10'>
       <div className='flex justify-center '>
         <img src={rtmnuImg} alt=" rtmnu image"
           className='rounded-full h-30 ' />

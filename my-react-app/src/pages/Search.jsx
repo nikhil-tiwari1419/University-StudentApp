@@ -14,11 +14,11 @@ function Search() {
 
   return (
     <div
-      className={`min-h-screen flex flex-col mx-auto max-w-md w-full rounded p-6 pb-20
+      className={`min-h-screen flex flex-col mx-auto max-w-md w-full  p-6 pb-20
         ${
           theme === "dark"
             ? "bg-gray-800 text-white"
-            : "bg-gradient-to-b from-blue-200 via-green-100 to-white text-black"
+            : "app-background text-black"
         }`}
     >
       {/* Heading */}

@@ -16,7 +16,7 @@ function Myinfo() {
  const [isEditable,setEdit] = useState(false);
 
   return (
-    <div className="min-h-screen flex-col mx-auto w-full max-w-md flex bg-gradient-to-b from-blue-300 to-blue-100 pb-20 ">
+    <div className="min-h-screen flex-col mx-auto w-full max-w-md flex app-background  pb-20 ">
       <div className="text-black font-semibold flex items-center justify-center pt-6 text-lg">
         Personal Info
       </div>
@@ -46,7 +46,7 @@ function Myinfo() {
                 type="text"
                 onChange={(e)=> setName(e.target.value)}
                 disabled={!isEditable}
-                className={`border rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed": ""}`}
+                className={`border border-blue-100 rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed": ""}`}
                 placeholder="Enter your full name"
               />
             </div>
@@ -69,7 +69,7 @@ function Myinfo() {
               <label className="block text-sm font-medium">Gender</label>
               <select
               disabled={!isEditable}
-                className={ `border rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ?"bg-gray-200 cursor-not-allowed":""}`}
+                className={`border rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ?"bg-gray-200 cursor-not-allowed":""}`}
               >
                 <option value="">Select gender</option>
                 <option value="male">Male</option>
@@ -86,7 +86,7 @@ function Myinfo() {
                 value={email}
                 onChange={(e) =>setEmail(e.target.value)}
                disabled={!isEditable}
-                className={`border rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""
+                className={`border border-blue-100 rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""
 
                 }`}
                 placeholder="Enter your email"
@@ -101,7 +101,7 @@ function Myinfo() {
                 type="tel"
                 onChange={(e)=>setPh_number(e.target.value)}
                 disabled={!isEditable}
-                className={`border rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""
+                className={`border border-blue-100 rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""
 
                 }`}
                 placeholder="Enter your phone number"
@@ -116,7 +116,7 @@ function Myinfo() {
                 type="text"
                 onChange={(e)=> setCollege_name(e.target.value)}
                 disabled={!isEditable}
-                className={`border rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""}`}
+                className={`border border-blue-100 rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""}`}
                 placeholder="Enter your college name"
               />
             </div>
@@ -128,7 +128,7 @@ function Myinfo() {
                 type="number"
                 onChange={(e)=> setCollege_code(e.target.value)}
                 disabled={!isEditable}
-                className={`border rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""}`}
+                className={`border  rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""}`}
                 placeholder="Enter your college code"
               />
             </div>
@@ -138,7 +138,7 @@ function Myinfo() {
               <label className="block text-sm font-medium">Year of Studying</label>
               <select
                disabled={!isEditable}
-                className={`border rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""}`}
+                className={`border  rounded-lg w-full px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-100 ${!isEditable ? "bg-gray-200 cursor-not-allowed":""}`}
               >
                 <option value="">Select year</option>
                 <option value="1">1st Year</option>

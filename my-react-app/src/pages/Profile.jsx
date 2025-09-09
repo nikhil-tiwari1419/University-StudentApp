@@ -35,7 +35,7 @@ function Profile() {
   }
 
   return (
-    <div className={`min-h-screen mx-auto max-w-md w-full pb-20 rounded ${theme === "dark" ? "bg-gray-800 text-white" : "bg-gradient-to-b from-blue-300 via-violet-200 to-white"}`}>
+    <div className={`min-h-screen mx-auto max-w-md w-full pb-20  ${theme === "dark" ? "bg-gray-800 text-white" : "app-background text-black"}`}>
       <h2 className={`text-center text-xl font-semibold pt-5 pb-3 ${theme === 'dark' ? "text-white ":"text-black"}`}> My Profile</h2>
 
 
@@ -51,14 +51,14 @@ function Profile() {
         <h3 className={`text-xl font-bold mt-2 ${theme === "dark" ? "text-white" : "text-black"}`}>Brime O'corno</h3>
         <p className="text-sm text-yellow-500">BrimeO'corno@mail.com</p>
       </div>
-      <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-2xl shadow-2xl'>
+      <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-xl shadow-2xl'>
         <MenuItem icon={<FaFileInvoice />} label="My info" onClick={handleGetMyinfo}   theme={theme}/>
         <MenuItem icon={<FaLock />} label="Change password" onClick={handlepass}  theme={theme} />
         <MenuItem icon={<FaWallet />} label="Wallet" onClick={handleGetWallet}  theme={theme} />
         <MenuItem icon={<FaAddressCard />} label="About Us" onClick={hangelAboutus}   theme={theme}/>
         <MenuItem icon={<MdPrivacyTip />} label="Privacy Policy" onClick={handelGetPrivacy}  theme={theme} />
       </div>
-      <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-2xl shadow-2xl'>
+      <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-xl shadow-2xl'>
         {/* notificatio toggle */}
         <MenuItem
           icon={<FaBell />}

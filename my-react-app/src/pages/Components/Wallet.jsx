@@ -20,7 +20,7 @@ function Wallet() {
   }, [isOpen]);
 
   return (
-    <div className='min-h-screen flex-col text-black  mx-auto w-full max-w-md flex bg-gradient-to-b from-blue-300 via-white to-violet-300 pb-20'>
+    <div className='min-h-screen flex-col text-black  mx-auto w-full max-w-md flex app-background  pb-20'>
       <div className='text-black font-bold text-2xl flex item-center justify-center pt-6'>
         ----Wallet----
       </div>

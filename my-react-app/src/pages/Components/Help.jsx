@@ -8,7 +8,7 @@ function Help() {
     // }
 
   return (
-   <div className='min-h-screen flex-col  mx-auto w-full max-w-md flex bg-gradient-to-b from-blue-200 to-pink-200 pb-20'>Help</div>
+   <div className='min-h-screen flex-col  mx-auto w-full max-w-md flex app-background  pb-20'>Help</div>
    
   )
 }

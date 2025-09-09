@@ -79,7 +79,7 @@ function Home() {
       className={`overflow-y-auto h-full mx-auto max-w-md w-full min-h-screen px-4 py-6 space-y-6 pb-20 transition-all duration-500 
         ${theme === "dark"
           ? "dark bg-gray-900 text-white"
-          : "bg-gradient-to-b from-gray-300 to-blue-300 text-black"
+          : "app-background  text-black"
         }`}
     >
       {/* Header */}
@@ -95,8 +95,8 @@ function Home() {
 
         {open && (
           <div
-            className={`fixed z-50 left-0 pt-3 p-3 top-4 rounded-r-2xl flex flex-col h-70 w-64 transform transition-transform duration-500 ease-in-out 
-            ${theme === "dark" ? "bg-gray-900 text-white" : "bg-white text-black"}
+            className={`fixed px-7 z-50 left-0 pt-2 p-3 top-4 rounded-r-2xl flex flex-col h-full w-64 transform transition-transform duration-500 ease-in-out 
+            ${theme === "dark" ? "bg-gray-700 text-white" : "bg-white/90 text-black"}
             ${open ? "translate-x-0" : "-translate-x-full"}`}
           >
             <Hamburger size={24} toggled={open} toggle={setOpen} />

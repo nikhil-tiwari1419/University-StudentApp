@@ -12,11 +12,11 @@ function Navbar() {
   
   return (
     <div className='fixed bottom-0  w-full shadow '>
-    <nav className={`mx-auto w-full px-7 p-3 rounded flex font-sans max-w-md shadow justify-between items-center ${theme === "dark" ? "bg-gray-400 text-white" : "bg-gray-300"}`}>
+    <nav className={`mx-auto w-full px-7 p-2 rounded flex font-sans max-w-md shadow justify-between items-center ${theme === "dark" ? "bg-gray-400 text-white" : "bg-gray-300"}`}>
       <NavLink
         to="/App/Home"
         className={({ isActive }) =>
-          `text-center flex flex-col  no-underline hover:underline items-center ${isActive ? "text-blue-600" : "text-gray-900"
+          `text-center flex flex-col  no-underline hover:underline items-center ${isActive ? "text-black bg-blue-300 rounded-full p-2 " : "text-gray-900"
           }`
         }
       >
@@ -27,7 +27,7 @@ function Navbar() {
       <NavLink
         to="/App/Search"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-600" : "text-gray-900"
+          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-black bg-blue-300 rounded-full p-2 " : "text-gray-900"
           }`
         }
       >
@@ -38,7 +38,7 @@ function Navbar() {
       <NavLink
         to="/App/Explore"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-600" : "text-gray-900"
+          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-black bg-blue-300 rounded-full p-2 " : "text-gray-900"
           }`
         }
       >
@@ -49,7 +49,7 @@ function Navbar() {
       <NavLink
         to="/App/Profile"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-blue-600" : "text-gray-900"
+          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-black bg-blue-300 rounded-full p-2 " : "text-gray-900"
           }`
         }
       >

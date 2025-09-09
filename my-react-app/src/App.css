@@ -1,0 +1,9 @@
+
+.app-background {
+  background-image: url('./assets/backgroundimage.jpg'); /* If in src */
+  /* OR if in public folder: */
+  /* background-image: url('/background.jpg'); */
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}

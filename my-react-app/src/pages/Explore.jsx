@@ -11,7 +11,7 @@ function Explore() {
       <div className={`min-h-screen flex-col mx-auto w-full max-w-md flex pb-20
     ${theme === "dark"
             ? "bg-gray-800 text-white"
-            : "bg-gradient-to-b from-blue-200 via-white to-violet-200 text-black"
+            : "app-background  text-black"
          }`}>
          <h1 className='text-center items-center font-bold text-2xl  mt-5 mb-6'>Explore</h1>
 
@@ -60,10 +60,10 @@ function Explore() {
                      href={items.url}
                      target="_blank"
                      rel="noopener noreferrer"
-                     className={`border cursor-pointer rounded-2xl mx-3 p-2 m-2 h-20 flex justify-center space-x-3 text-center text-xl 
+                     className={`border cursor-pointer rounded mx-3 p-2 m-2 h-20 flex justify-center space-x-3 text-center text-xl 
                   ${theme === "dark"
                            ? "border-gray-500 bg-gray-400 text-black"
-                           : "text-blue-800 border-blue-400 bg-red-100"}`}
+                           : "text-blue-800 border-blue-400 bg-blue-200"}`}
                   >
                      {items.name}
                   </a>
@@ -72,7 +72,7 @@ function Explore() {
          </div>
 
          <h2 className='text-lg font-semibold max-w-md mx-3  p-4'>Placement and Intership Links</h2>
-         <div className='border h-80 mx-3 rounded-2xl border-blue-900 text-lx overflow-y-auto no-scrollbar'>
+         <div className='border h-80 mx-3 rounded-xl border-blue-900 text-lx overflow-y-auto no-scrollbar'>
             <div className='flex flex-col'>
                {[
                   { name: "AICET placement portal", url: "https://www.aicte.gov.in/opportunities/students/placements", logo: "https://i0.wp.com/sjbit.edu.in/wp-content/uploads/2021/07/AICTE-Logo-250x250-1.png?ssl=1" },
@@ -93,7 +93,7 @@ function Explore() {
                      href={item.url}
                      traget="_blank"
                      rel="noopener noreferrer"
-                     className={`border cursor-pointer mx-3 p-2 m-2 h-20 flex justify-center space-x-3 rounded-2xl text-xl ${theme === 'dark' ? "bg-gray-400 border-gray-500 text-black " : "text-blue-800 border-blue-400 bg-blue-100"}`}
+                     className={`border cursor-pointer mx-3 p-2 m-2 h-20 flex justify-center space-x-3 rounded text-xl ${theme === 'dark' ? "bg-gray-400 border-gray-500 text-black " : "text-blue-800 border-blue-400 bg-blue-100"}`}
                   >
                      {/* logo yaha per hai  */}
                      <img 

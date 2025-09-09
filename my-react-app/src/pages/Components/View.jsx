@@ -16,9 +16,9 @@ function View() {
 
   return (
     <div
-      className={`min-h-screen mx-auto mx-w-md w-full pb-20 rounded 
+      className={`h-full min-h-screen mx-auto max-w-md w-full pb-20 rounded 
   ${theme === "dark"
-          ? "bg-gray-900 text-white" : "text-black bg-gradient-to-b from-blue-200 via-violet-100 to-white"
+          ? "bg-gray-900 text-white" : "text-black app-background "
         } `}>
 
       <h2 className="items-center flex flex-col pt-4 font-bold text-lg underline-offset-4"> All Colleges / Cources</h2>

@@ -15,7 +15,7 @@ function AboutUs() {
 
 const {theme} =useTheme();
   return (
-      <div className={`min-h-screen flex-col  mx-auto w-full max-w-md flex  pb-20 ${theme === "dark" ? "bg-gray-700 text-white":"bg-gradient-to-b from-blue-200 to-violet-200  text-black"}`}>
+      <div className={`min-h-screen flex-col  mx-auto w-full max-w-md flex  pb-20 ${theme === "dark" ? "bg-gray-700 text-white":"app-background   text-black"}`}>
         <h2 className='pt-4 flex flex-col items-center underline  text-xl'> About Us</h2>
         <div className='flex flex-col items-center pt-10'>
             <img className='h-60 w-60 rounded-xl '  src={image1} alt="C.P Radha rkishnan" />
@@ -27,7 +27,7 @@ const {theme} =useTheme();
         </div>
         <div className='flex flex-col items-center pt-20'>
             <img className='h-60 w-60 rounded-xl '  src={image3} alt="Dr Subash .B. Khondwar" />
-            <h3 className='text-xl text-blue-500'>Subash .B. Khondwar </h3> <h5 className='sm:font-thin md:font-light hover:text-white' >Pro voice Chancellor</h5> <h5  className='sm:font-thin md:font-light hover:text-white '>RTMNU Nagpur</h5> 
+            <h3 className='text-xl text-blue-500'>Subash .B. Khondwar </h3> <h5 className='sm:font-thin md:font-light hover:text-white' >Pro vice Chancellor</h5> <h5  className='sm:font-thin md:font-light hover:text-white '>RTMNU Nagpur</h5> 
         </div>
         <div className='flex flex-col items-center pt-20'>
             <img className='h-60 w-60 rounded-xl '  src={image4} alt="Dr Raju hivse" />

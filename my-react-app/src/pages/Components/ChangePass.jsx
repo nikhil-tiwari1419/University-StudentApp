@@ -51,10 +51,10 @@ function ChangePass() {
   };
 
   return (
-    <div className={`min-h-screen px-10 mx-auto w-full max-w-lg ${theme === "dark" ? "bg-gray-800 text-white" : "app-background text-black"} pb-20`}>
+    <div className={`min-h-screen px-10 mx-auto w-full max-w-md ${theme === "dark" ? "bg-gray-800 text-white" : "app-background text-black"} `}>
 
       <h4 className="text-black  text-2xl items-center flex flex-col mb-4 pt-3">my-profile</h4>
-      <div className="bg-white/50 backdrop-blur-lg rounded-xl shadow-xl w-full max-w-md p-10 ">
+      <div className="bg-white/50 backdrop-blur-lg rounded-xl shadow-xl p-10 ">
         {/* Heading */}
         <h2 className="text-center text-black font-bold text-2xl mb-40">
           Change Password

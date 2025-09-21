@@ -1,13 +1,33 @@
 import React, { useState } from 'react'
 import lodingGif from "./assets/loading.gif";
-import SignupImg from "./assets/undraw_sign-up.png";
+// import SignupImg from "./assets/undraw_sign-up.png";
 import { useNavigate } from "react-router-dom";
+
+import { AiFillGoogleCircle } from "react-icons/ai";
+import { AiFillTwitterCircle } from "react-icons/ai";
+import { MdFacebook } from "react-icons/md";
 
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
+// import { div } from 'framer-motion/client';
 // import { button } from 'framer-motion/client';
 
 function Signup() {
+
+  const submitHandeler = (e) => {
+    e.preventDefault()
+    console.log(Email)
+    console.log(OTP)
+    console.log(passoword)
+    console.log(error)
+    console.log(isValidPassword)
+    setEmail('')
+    setOTP('')
+    setPassword('')
+    setError('')
+    setValidPassowrd('')
+
+  }
 
   const navigation = useNavigate();
 
@@ -15,10 +35,10 @@ function Signup() {
     navigation("/Signin")
 
   };
-  const [showPassword ,setShowPassword]= useState(false);
-  const togglePasswordVisibility = () =>{
-     setShowPassword(prev => !prev)
-    };
+  const [showPassword, setShowPassword] = useState(false);
+  const togglePasswordVisibility = () => {
+    setShowPassword(prev => !prev)
+  };
 
   const [Email, setEmail] = useState("");
   const [OTP, setOTP] = useState("");
@@ -28,18 +48,22 @@ function Signup() {
 
   const setPasswordd = (e) => {
     const value = e.target.value;
-    const regex = /^[A-Za-z0-9]*$/;
     setPassword(value);
 
-    if (regex.test(value)) {
-      if (value.length < 8 || value.length > 10) {
-        setError("password must be at least 8 characters or not more than 10 characters.");
-        setValidPassowrd(false);
-      }
-      else {
-        setError("")
-        setValidPassowrd(true);
-      }
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!regex.test(value)) {
+      setError(
+        "1. Ensure that password contains both upper and lowercase letters.<br />" +
+        "2. Include symbols like @ , _ , # , * and/or numbers."
+      );
+      setValidPassowrd(false);
+    } else if (value.length > 13) {
+      setError("password must be not more than 13 characters. ");
+      setValidPassowrd(false);
+    } else {
+      setError("");
+      setValidPassowrd(true);
     }
   };
   const handleGetSignUp = () => {
@@ -62,27 +86,41 @@ function Signup() {
       <div className="h-950px] w-[360px] backdrop-blur-md bg-white/50 p-8 rounded-t-xl shadow-lg">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Create Account</h2>
 
-        <form className="space-y-4">
+        <form
+          // e is giving u the evenrt  detail's fater submit 
+          onSubmit={(e) => {
+            submitHandeler(e)
+          }}
+          className="space-y-4">
           {/* <h3 className='text-black'>.....Create password..... </h3> */}
           <div className="relative">
             <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-              
+
             <input
               type={showPassword ? "text" : "password"}
               value={passoword}
               onChange={setPasswordd}
-              placeholder="Enter your password "
+              placeholder="Enter your password"
               required
-              pattern="[A-Za-z0-9]{6,}"
-              title="Password must be at least 6 characters long and contain only letters and numbers"
-              className={`text-black w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 ${error ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-indigo-400"}`}
+              pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}"
+              title="Password must have at least 1 uppercase, 1 lowercase, 1 number, 1 special character, and be 10–13 characters long"
+              className={`text-black w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 ${error ? "border-red-500 focus:ring-red-400" : "border-gray-300 focus:ring-indigo-400"
+                }`}
             />
-           <div
-            onClick={togglePasswordVisibility}
-            className='absolute inset-y-11 right-4 flex items-center cursor-pointer text-gray-600'
-           >
+
+            {error && (
+              <div
+                className='text-red-600 text-sm mb-2'
+                dangerouslySetInnerHTML={{ __html: error }}
+              />
+            )}
+
+            <div
+              onClick={togglePasswordVisibility}
+              className='fixed top-32 right-12 flex items-center cursor-pointer text-gray-600'
+            >
               {showPassword ? <FaEye /> : <FaEyeSlash />}
-           </div>
+            </div>
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
@@ -98,7 +136,7 @@ function Signup() {
               <div className="h-10 flex items-center">
                 {!isVerify ? (
                   <button
-                    type="button"
+                    type="submit"
                     disabled={!Email}
                     className={`cursor-pointer text-sm  px-3 py-1 rounded-2xl ${Email ? "bg-lime-400 hover:bg-blue-700" : "rounded-2xl cursor-not-allowed bg-gray-400"}`}
                     onClick={verifybtn}
@@ -111,7 +149,7 @@ function Signup() {
                     <img
                       src={lodingGif}
                       alt="loding Gif"
-                      className="h-8 "
+                      className="h-8"
                     />
                   </div>
                 )}
@@ -144,9 +182,10 @@ function Signup() {
             handleGetSignUp();
             setTimeout(() => {
               navigation("/Signin")
+              // 
             }, 1000);
           }}
-            type="button"
+            type="submit"
             disabled={!isValidPassword}
             className={`w-full py-2 rounded-lg font-semibold transition ${isValidPassword
               ? "bg-indigo-500 text-white hover:bg-indigo-600"
@@ -163,7 +202,12 @@ function Signup() {
             <span className="text-indigo-600 cursor-pointer hover:underline">Login</span>
           </button>
         </p>
-        <img className='mx-auto w-50 pt-10  ' src={SignupImg} alt="signup img" />
+        <h2 className="mt-5 text-black text-center">.............OR.............</h2>
+
+        <span className=" text-black border text-4xl justify-center flex mb-4 mt-3 border-b-purple-400 rounded-2xl cursor-pointer hover:text-red-300">< AiFillGoogleCircle /></span>
+        <span className=" text-black border text-4xl justify-center flex mb-4 mt-3 border-b-purple-400 rounded-2xl cursor-pointer hover:text-blue-500"><MdFacebook /></span>
+        <span className=" text-black border text-4xl justify-center flex mb-4 mt-3 border-b-purple-400 rounded-2xl cursor-pointer hover:text-gray-400"><  AiFillTwitterCircle /></span>
+        {/* <img className='mx-auto w-50 pt-10  ' src={SignupImg} alt="signup img" /> */}
       </div>
     </div>
   );

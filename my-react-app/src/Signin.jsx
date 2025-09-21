@@ -9,6 +9,17 @@ import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 
 function Signin() {
+
+    const submitHandeler = (e) => {
+        e.preventDefault()
+        console.log(email)
+        console.log(password)
+        setEmail('')
+        setPassword('')
+        handelGetMainlayout();
+    }
+
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -45,7 +56,11 @@ function Signin() {
                 </button>
                 <p className="text-center text-gray-600 mb-6">Sign in to continue</p>
 
-                <form>
+                <form
+                    onSubmit={(e) => {
+                        submitHandeler(e)
+                    }}
+                >
                     <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-700 mb-1">
                             Email
@@ -95,7 +110,7 @@ function Signin() {
                     </div>
 
                     <button onClick={handelGetMainlayout}
-                        type="button"
+                        type="submit"
                         className="cursor-pointer w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-md"
                     >
                         Login

@@ -1,126 +1,196 @@
 import React, { useState } from "react";
 import { BsArrowLeftShort } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
-import ForgootPassword from "./assets/undraw_forgotpassword.png";
-import { AiFillGoogleCircle } from "react-icons/ai";
-import { AiFillTwitterCircle } from "react-icons/ai";
-import { MdFacebook } from "react-icons/md";
+// import ForgootPassword from "./assets/undraw_forgotpassword.png";
 
+
+import { IoIosUnlock } from "react-icons/io";
+import { FaMobileAlt } from "react-icons/fa";
+import { FaMailBulk } from "react-icons/fa";
+import { CgPassword } from "react-icons/cg";
 
 import { FaEye } from "react-icons/fa6";
 import { FaEyeSlash } from "react-icons/fa6";
 function ForgotPass() {
 
-    const [seePassword, setSeePassword] = useState(false);
-    const togglePasswordVisibility = () => {
-        setSeePassword(prev => !prev)
+    const [step, setstep] = useState(1);
+    const [email, setemail] = useState("");
+    const [contactMethod, setContactMethod] = useState("");
+    const [newPassword, setNewPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+
+    const handelNext = () => {
+        setstep(step + 1);
+    };
+    const handelprev = () => {
+        setstep(step - 1);
+    };
+    const handelUpdate = () => {
+        setstep(4);
     };
 
-    let directionPass = useNavigate();
-
+    const directionPass = useNavigate();
     const handleTOSignin = () => {
+        alert("Redirecting to login page");
         directionPass("/Signin")
     }
+    const Signin = () => {
+        directionPass("/Signin")
+    }
+
+    const [seeNewPassword, setSeeNewPassword] = useState(false);
+    const [seeConfirmPassword, setSeeConfirmPassword] = useState(false);
+
+    const toggleNewPasswordVisibility = () => {
+        setSeeNewPassword(!seeNewPassword);
+    };
+
+    const toggleConfirmPasswordVisibility = () => {
+        setSeeConfirmPassword(!seeConfirmPassword);
+    };
+
+
     return (
-        <div className="bg-gradient-to-b mx-auto max-w-md w-full from-blue-200 to-pink-100 min-h-screen overflow-hidden px-4 py-5 ">
-            <div className='text-black text-2xl text-bold text-center'>
-                Forgot - passWord
-            </div>
-            <button
-                className='mx-10 '
-                onClick={handleTOSignin}
-            >
-                <BsArrowLeftShort className='text-black text-3xl cursor-pointer' />
-            </button>
-            <div className=' border rounded-xl p-3 bg-violet-400 items-center mb-6 flex-col flex'>
-                <img src={ForgootPassword} className='h-25' alt="password img " />
-            </div>
-
-            <div className='bg-blue-300 rounded-t-xl pb-25'>
-                <div className='text-center '>
-                    <label className="block text-sm font-medium text-gray-700 mb-1 pt-3">
-                        Email :-
-                    </label>
-                    <input
-                        type="Email"
-                        placeholder='Enter Regestered Email-id'
-                        className='border-2 w-70 rounded-2xl p-2 text-center hover:bg-blue-100 items-center text-black focus:outline-none '
+        <div className="bg-gradient-to-b mx-auto max-w-md w-full text-black app-background min-h-screen overflow-hidden px-4 py-5 ">
+            {step === 1 && (
+                <div
+                    className="text-center">
+                    <h2 className="text-2xl  font-bold "> Forget Password</h2>
+                    <span
+                        onClick={Signin}
+                        className="text-4xl cursor-pointer">
+                        <BsArrowLeftShort />
+                    </span>
+                    <div className=" text-7xl p-10 mb-10 rounded items-center flex flex-col">
+                        <IoIosUnlock />
+                        <h1 className="text-4xl font-bold ">FORGET <br /> PASSWORD</h1>
+                        <h4 className="text-xl mt-4">provide your account's email for which you want to reset your password </h4>
+                    </div>
+                    <input type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setemail(e.target.value)}
+                        className="w-full border-teal-600 px-4 py-2 border-3 focus:outline-none rounded-lg mb-4"
                     />
-                </div>
-                <div className='text-center pt-5 '>
-
                     <button
-                        type="button"
-                        onClick={() => {
-                            setTimeout(() => {
-                                alert("OTP send at entered email")
-                            }, 2000);
-                        }}
-                        placeholder='submit'
-                        className='border w-50 text-center border-green-400 bg-green-300 transform translate active:translate-y-1 active:shadow-2xl cursor-pointer rounded-2xl p-2 items-center text-black focus:outline-none'
-                    > SEND  </button>
-                </div>
-                <div className='text-center '>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        OTP :-
-                    </label>
-                    <input
-                        type="OTP"
-                        placeholder='6 - digit OTP '
-                        className='border-2 w-70 text-center hover:bg-blue-100 rounded-2xl p-2 items-center text-black focus:outline-none'
-                    />
+                        disabled={!email.trim()}
+                        className={`w-full text-black py-2 rounded-lg  ${email.trim() ? " bg-yellow-400 cursor-pointer" : "opacity-50 bg-yellow-100 cursor-not-allowed"} `}
+                        onClick={handelNext}
+                    >NEXT
+                    </button>
+                    <h4 className="flrx flex-col pt-75"> &copy; RTMNU Support / management  </h4>
 
                 </div>
-                <div className='text-center relative '>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Enter Password
-                    </label>
+            )}
+
+
+            {step === 2 && (
+                <div className="text-center">
+                    {/* <h2 className="text-2xl text-black font-bold mb-5">MAKE SELECTION</h2> */}
+                    <span
+                        onClick={handelprev}
+                        className="text-4xl cursor-pointer ">
+                        <BsArrowLeftShort />
+                    </span>
+                    <h4>select which contact details should we use to reset we your password ?</h4>
+                    <button
+                        className={`w-full text-black py-2 border border-none cursor-pointer rounded-lg mb-2 ${contactMethod === "sms" ? "bg-gray-200" : ""
+                            }`}
+                        onClick={() => setContactMethod("sms")}
+                    >
+                        <span className="text-9xl items-center flex flex-col p-10">
+                            <FaMobileAlt />
+                        </span>
+                        Via SMS (+91-123456789)
+                    </button>
+                    <button
+                        className={`w-full text-black py-2 border border-none cursor-pointer rounded-lg mt-5 ${contactMethod === "mail" ? "bg-gray-200" : ""
+                            }`}
+                        onClick={() => setContactMethod("mail")}
+                    >
+                        <span className="text-9xl items-center flex flex-col  p-10">
+                            <FaMailBulk />
+                        </span>
+                        Via Email (support@gmail.com)
+                    </button>
+                    <button
+                        className="mt-4 bg-yellow-400 text-black py-2 pt-5 w-full cursor-pointer rounded-lg mb-32"
+                        onClick={handelNext}
+                        disabled={!contactMethod}
+                    >
+                        NEXT
+                    </button>
+                    <h4> &copy; RTMNU Support / management  </h4>
+                </div>
+            )}
+            {step === 3 && (
+                <div className="text-center">
+                    <h2 className="text-xl font-bold mb-5">NEW CREDENTIALS</h2>
+                    <span
+                        onClick={handelprev}
+                        className="text-4xl cursor-pointer">
+                        <BsArrowLeftShort />
+                    </span>
+                    <h4>Your identity has been verifyed <br /> Set Your new password</h4>
+                    <span className="text-9xl items-center flex flex-col p-20">
+                        <CgPassword />
+                    </span>
                     <input
-                        type={seePassword ? "text" : "password"}
-                        placeholder='passowrd'
-                        className='border-2 w-70 text-center hover:bg-blue-100 rounded-2xl p-2 items-center text-black focus:outline-none'
+                        type={seeNewPassword ? "text" : "password"}
+                        placeholder="New Password"
+                        value={newPassword}
+                        onChange={(e) => setNewPassword(e.target.value)}
+                        className="w-full focus:outline-none px-4 py-2 border rounded-lg mb-6"
                     />
                     <div
-                        onClick={togglePasswordVisibility}
-                        className='absolute inset-y-11.5 right-22 flex items-center cursor-pointer text-gray-600'
+                        onClick={toggleNewPasswordVisibility}
+                        className=" fixed top-115 right-13 transform -translate-y-1/2 cursor-pointer text-gray-600"
                     >
-                        {seePassword ? <FaEye /> : <FaEyeSlash />}
+                        {seeNewPassword ? <FaEye /> : <FaEyeSlash />}
                     </div>
-                </div>
-                <div className=' text-center mt-10 '>
+                    <input
+                        type={seeConfirmPassword ? "text" : "password"}
+                        placeholder="Confirm New Password"
+                        value={confirmPassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        className="w-full focus:outline-none px-4 py-2 border rounded-lg mb-4"
+                    />
+                    <div
+                        onClick={toggleConfirmPasswordVisibility}
+                        className=" fixed top-132 right-13 transform -translate-y-1/2 cursor-pointer text-gray-600"
+                    >
+                        {seeConfirmPassword ? <FaEye /> : <FaEyeSlash />}
+                    </div>
                     <button
-                        type="button"
-                        onClick={() => {
-                            handleTOSignin();
-                            setTimeout(() => {
-                                alert("Password is changed")
-                            }, 1000);
-                        }}
-                        placeholder='submit'
-                        className='border transform translate active:translate-y-1 active:shadow-2xl border-blue-400 w-50 text-center bg-blue-400 cursor-pointer rounded-xl p-2 items-center text-black focus:outline-none'
-                    > Proceed  </button>
+                        className="w-full bg-yellow-400 text-black py-2 rounded-lg "
+                        onClick={handelUpdate}
+                    >
+                        UPDATE
+                    </button>
+                    <h4 className="pt-68"> &copy; RTMNU Support / management  </h4>
+
                 </div>
-
-                <h5 className='flex items-center justify-center text-black mt-20'>......or......</h5>
-                <div className='flex gap-5 mt-2 justify-center text-4xl h-10'>
-
-                    <AiFillGoogleCircle className=' text-black hover:text-red-500 ' />
-                    <MdFacebook className=' text-black hover:text-blue-500 ' />
-                    <AiFillTwitterCircle className=' text-black hover:text-white ' />
-                </div>
-
-                <div className='text-center '>
-                    <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Do you want to create account ?
-                    </label>
+            )}
+            {step === 4 && (
+                <div className="text-center">
+                    <h2 className="text-xl font-bold mb-5">PASSWORD UPDATED</h2>
+                    <span
+                        onClick={handelprev}
+                        className="text-4xl cursor-pointer">
+                        <BsArrowLeftShort />
+                    </span>
+                    <p>Your password has been updated successfully.</p>
                     <button
-                        type="Ph no"
-                        placeholder='submit'
-                        onClick={() => directionPass("/Signup")}
-                        className='border-2 w-50 font-bold text-center bg-green-100 cursor-pointer rounded-2xl p-2 items-center text-black focus:outline-none'
-                    > Sign-Up  </button>
+                        type="submit"
+                        className="mt-4 w-full bg-black text-white py-2  rounded-lg "
+                        onClick={handleTOSignin}
+                    >
+                        LOGIN
+                    </button>
+                    <h4 className="pt-173"> &copy; RTMNU Support / management  </h4>
+
                 </div>
-            </div>
+            )}
         </div>
     )
 }

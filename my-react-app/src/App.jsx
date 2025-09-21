@@ -44,12 +44,12 @@ function App() {
           <Route path="Explore" element={<Explore />} />
           <Route path="profile" element={<Profile />} />
           <Route path="Myinfo" element={<Myinfo />} />
-         <Route path="PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="Wallet" element={<Wallet />} />
           <Route path="Help" element={<Help />} />
           <Route path="ChangePass" element={<ChangePass />} />
           <Route path="AboutUs" element={<AboutUs />} />
-          <Route path="View" element={<View/>}/>
+          <Route path="View" element={<View />} />
         </Route>
       </Routes>
     </ BrowserRouter>

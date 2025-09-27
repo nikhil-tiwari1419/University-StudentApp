@@ -4,7 +4,7 @@ import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./MainLayout";
-import Header from "./started";
+import Header from "./Header";
 import Signin from "./Signin";
 import Signup from "./Signup";
 import ForgotPass from "./ForgotPass";

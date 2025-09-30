@@ -17,6 +17,7 @@ import { MdSunny } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
+import { FaRegArrowAltCircleRight, FaWallet, FaBell, FaQuestionCircle, FaSignOutAlt, FaFileInvoice, FaLock } from "react-icons/fa";
 
 
 function Home() {
@@ -25,36 +26,36 @@ function Home() {
   const [colleges, setColleges] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
- // fetching JSON file 
- useEffect(() =>{
-  fetch("https://raw.githubusercontent.com/nikhil-tiwari1419/CollegeData/main/College.json")
-  .then((res)=> res.json())
-  .then((data)=> setColleges(data))
-  .catch((err)=> console.error("Error fetching json",err));
- }, []);
- 
+  // fetching JSON file 
+  useEffect(() => {
+    fetch("https://raw.githubusercontent.com/nikhil-tiwari1419/CollegeData/main/College.json")
+      .then((res) => res.json())
+      .then((data) => setColleges(data))
+      .catch((err) => console.error("Error fetching json", err));
+  }, []);
 
-  const handleChange = (e)=>{
+
+  const handleChange = (e) => {
     const value = e.target.value;
     setQuery(value);
 
-    if(value.length>0){
-      const filtered = colleges.filter((colleges)=>
-      colleges.name.toLowerCase().includes(value.toLowerCase())
-    )
-    .sort((a, b)=>a.name.localeCompare(b.name));
+    if (value.length > 0) {
+      const filtered = colleges.filter((colleges) =>
+        colleges.name.toLowerCase().includes(value.toLowerCase())
+      )
+        .sort((a, b) => a.name.localeCompare(b.name));
 
-    setSuggestions(filtered);
-    } else{
+      setSuggestions(filtered);
+    } else {
       setSuggestions([]);
     }
 
   };
-  const handeleSelect = (url)=>{
-      window.open(url,"_blank");
+  const handeleSelect = (url) => {
+    window.open(url, "_blank");
   };
-  
-//. .......................images section .........................
+
+  //. .......................images section .........................
 
   const images = [img1, img2, img3, img4, img5, img6, img7];
   const [currentImage, setCurrentImage] = useState(0);
@@ -74,6 +75,11 @@ function Home() {
   const { theme, toggleTheme } = useTheme(); // ✅ ThemeContext se theme state aa rahi hai
   const [AboutInfo, setAboutInfo] = useState(false);
   const [ContactInfo, setContactInfo] = useState(false);
+
+  // 
+  // const handlepass = () => {
+  //   navigate("/App/ChangePass")
+  // }
   return (
     <div
       className={`overflow-y-auto h-full mx-auto max-w-md w-full min-h-screen px-4 py-6 space-y-6 pb-20 transition-all duration-500 
@@ -118,34 +124,34 @@ function Home() {
             {/* About Developer */}
             <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex"
               onClick={() => setAboutInfo(!AboutInfo)} //tap moible
-              onMouseEnter={()=> setAboutInfo(true)} // hover desktop
-              onMouseMove={()=> setAboutInfo(false)} //hovet khatam 
+              onMouseEnter={() => setAboutInfo(true)} // hover desktop
+              onMouseMove={() => setAboutInfo(false)} //hovet khatam 
             >
               <IoIosContact className="text-3xl mx-2" />
 
               About Developer
             </span>
-            {AboutInfo &&(
+            {AboutInfo && (
               <div className="absolute left-17 mt-17 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
                 <p className="font-semibold"> Nikhil Tiwari</p>
                 <a href="https://github.com/nikhil-tiwari1419"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                    className="text-emerald-600 font-medium hover:underline block mt-2"
-                    >🔗 Github profile</a>
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-emerald-600 font-medium hover:underline block mt-2"
+                >🔗 Github profile</a>
               </div>
             )}
 
             {/* Contact */}
             <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex"
-            onClick={() => setContactInfo(!ContactInfo)} //tap moible
-              onMouseEnter={()=> setContactInfo(true)} // hover desktop
-              onMouseMove={()=> setContactInfo(false)} //hovet khatam
+              onClick={() => setContactInfo(!ContactInfo)} //tap moible
+              onMouseEnter={() => setContactInfo(true)} // hover desktop
+              onMouseMove={() => setContactInfo(false)} //hovet khatam
             >
               <BsFillTelephoneForwardFill className="text-2xl mx-3" />
               Contact
             </span>
-             {ContactInfo &&(
+            {ContactInfo && (
               <div className="absolute left-17 mt-20 w-78 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
                 <p className="font-semibold"> Nikhil Tiwari</p>
                 <p>Ph📞: 7057320974</p>
@@ -153,6 +159,13 @@ function Home() {
                 <p>Email-Id📩:-nikhiltiwari1425@gmail.com</p>
               </div>
             )}
+            {/* change password  */}
+            <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex"
+            onClick={() => navigation("/App/ChangePass")}
+            >
+             < FaLock className="text-2xl mx-3"/>
+             Change password
+            </span>
           </div>
         )}
       </header>
@@ -161,9 +174,9 @@ function Home() {
       <div
         className={`mx-auto w-full max-w-md items-center px-2 py-2 rounded-xl shadow-md p-4 
        ${theme === "dark"
-          ? "bg-gray-800 text-white"
-          : "bg-white text-black"
-        }`}
+            ? "bg-gray-800 text-white"
+            : "bg-white text-black"
+          }`}
       >
         <div className="flex items-center space-x-4">
           <img
@@ -191,22 +204,22 @@ function Home() {
               placeholder="Search college..."
               className="w-full outline-none text-sm bg-transparent"
             />
-            </div>
-            {suggestions.length>0 &&(
-              <ul className="border border-gray-300 rounded-lg mt-2 h-40 overflow-y-auto no-scrollbar shadow-lg">
-                {suggestions.map((college,index)=>(
-                  <li
-                  key={index}
-                  onClick={() =>handeleSelect(college.url)}
-                  className="p-2 m-2 hover:bg-gray-200 hover:text-black hover:rounded cursor-pointer">
-                    {college.name}
-                  </li>
-                ))}
-              </ul>
-            )}
           </div>
+          {suggestions.length > 0 && (
+            <ul className="border border-gray-300 rounded-lg mt-2 h-40 overflow-y-auto no-scrollbar shadow-lg">
+              {suggestions.map((college, index) => (
+                <li
+                  key={index}
+                  onClick={() => handeleSelect(college.url)}
+                  className="p-2 m-2 hover:bg-gray-200 hover:text-black hover:rounded cursor-pointer">
+                  {college.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-    
+      </div>
+
 
       {/* College Images Carousel */}
       <div
@@ -273,7 +286,7 @@ function Home() {
 
 const CategoryCard = ({ title, bg }) => (
   <div
-  className={`min-w-[120px] h-[100px] ${bg} mx-auto w-full max-w-md cursor-pointer flex items-center justify-center  rounded-xl shadow-md px-5 text-center`}
+    className={`min-w-[120px] h-[100px] ${bg} mx-auto w-full max-w-md cursor-pointer flex items-center justify-center  rounded-xl shadow-md px-5 text-center`}
   >
     <span className="text-xl">{title}</span>
   </div>

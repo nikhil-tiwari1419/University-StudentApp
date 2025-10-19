@@ -25,7 +25,7 @@ import View from "./pages/Components/View";
 function App() {
 
   return (
-    <BrowserRouter basename="/University-StudentApp">
+    <BrowserRouter>
       <Routes>
         {/* get started page hai ye  */}
         <Route path="/" element={<Header />} />

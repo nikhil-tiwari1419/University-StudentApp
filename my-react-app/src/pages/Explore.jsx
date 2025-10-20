@@ -11,7 +11,7 @@ function Explore() {
       <div className={`min-h-screen flex-col mx-auto w-full max-w-md flex pb-20
     ${theme === "dark"
             ? "bg-gray-800 text-white"
-            : "app-background  text-black"
+            : "bg-[linear-gradient(180deg,_#eaf7f7_0%,_#b6e8f9_40%,_#cfd8fc_70%,_#f7d0f9_100%)]  text-black"
          }`}>
          <h1 className='text-center items-center font-bold text-2xl  mt-5 mb-6'>Explore</h1>
 

@@ -15,7 +15,7 @@ function AboutUs() {
 
 const {theme} =useTheme();
   return (
-      <div className={`min-h-screen flex-col  mx-auto w-full max-w-md flex  pb-20 ${theme === "dark" ? "bg-gray-700 text-white":"app-background   text-black"}`}>
+      <div className={`min-h-screen flex-col  mx-auto w-full max-w-md flex  pb-20 ${theme === "dark" ? "bg-gray-700 text-white":"bg-[linear-gradient(180deg,_#eaf7f7_0%,_#b6e8f9_40%,_#cfd8fc_70%,_#f7d0f9_100%)] text-black"}`}>
         <h2 className='pt-4 flex flex-col items-center underline  text-xl'> About Us</h2>
         <div className='flex flex-col items-center pt-10'>
             <img className='h-60 w-60 rounded-xl '  src={image1} alt="C.P Radha rkishnan" />

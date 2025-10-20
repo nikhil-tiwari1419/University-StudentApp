@@ -17,7 +17,7 @@ import { MdSunny } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
-import { FaRegArrowAltCircleRight, FaWallet, FaBell, FaQuestionCircle, FaSignOutAlt, FaFileInvoice, FaLock } from "react-icons/fa";
+import { FaLock } from "react-icons/fa";
 
 
 function Home() {
@@ -82,10 +82,10 @@ function Home() {
   // }
   return (
     <div
-      className={`overflow-y-auto h-full mx-auto max-w-md w-full min-h-screen px-4 py-6 space-y-6 pb-20 transition-all duration-500 
+      className={`overflow-y-auto h-full mx-auto max-w-md w-full min-h-screen px-4 py-3 space-y-3 pb-20 transition-all duration-500 
         ${theme === "dark"
           ? "dark bg-gray-900 text-white"
-          : "app-background  text-black"
+          : "bg-[linear-gradient(180deg,_#eaf7f7_0%,_#b6e8f9_40%,_#cfd8fc_70%,_#f7d0f9_100%)]  text-black"
         }`}
     >
       {/* Header */}

@@ -16,7 +16,7 @@ function Myinfo() {
  const [isEditable,setEdit] = useState(false);
 
   return (
-    <div className="min-h-screen flex-col mx-auto w-full max-w-md flex app-background  pb-20 ">
+    <div className="min-h-screen flex-col mx-auto w-full max-w-md flex bg-[linear-gradient(180deg,_#eaf7f7_0%,_#b6e8f9_40%,_#cfd8fc_70%,_#f7d0f9_100%)]  pb-20 ">
       <div className="text-black font-semibold flex items-center justify-center pt-6 text-lg">
         Personal Info
       </div>

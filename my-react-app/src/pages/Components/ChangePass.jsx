@@ -51,7 +51,7 @@ function ChangePass() {
   };
 
   return (
-    <div className={`min-h-screen px-10 mx-auto w-full max-w-md ${theme === "dark" ? "bg-gray-800 text-white" : "app-background text-black"} `}>
+    <div className={`min-h-screen px-10 mx-auto w-full max-w-md ${theme === "dark" ? "bg-gray-800 text-white" : "bg-[linear-gradient(180deg,_#eaf7f7_0%,_#b6e8f9_40%,_#cfd8fc_70%,_#f7d0f9_100%)] text-black"} `}>
 
       <h4 className="text-black  text-2xl items-center flex flex-col mb-4 pt-3">my-profile</h4>
       <div className="bg-white/50 backdrop-blur-lg rounded-xl shadow-xl p-10 ">

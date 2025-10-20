@@ -16,7 +16,7 @@ function Navbar() {
       <NavLink
         to="/App/Home"
         className={({ isActive }) =>
-          `text-center flex flex-col  no-underline hover:underline items-center ${isActive ? "text-black  bg-blue-300 rounded-full" : "text-gray-900"
+          `text-center flex flex-col  items-center ${isActive ? "text-black  border-t-2 border-blue-500" : "text-gray-900"
           }`
         }
       >
@@ -27,7 +27,7 @@ function Navbar() {
       <NavLink
         to="/App/Search"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-black bg-blue-300 rounded-full  " : "text-gray-900"
+          `text-center flex flex-col items-center ${isActive ? "text-black border-t-2 border-blue-500" : "text-gray-900"
           }`
         }
       >
@@ -38,7 +38,7 @@ function Navbar() {
       <NavLink
         to="/App/Explore"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-black bg-blue-300 rounded-full  " : "text-gray-900"
+          `text-center flex flex-col items-center ${isActive ? "text-black border-t-2 border-blue-500" : "text-gray-900"
           }`
         }
       >
@@ -49,7 +49,7 @@ function Navbar() {
       <NavLink
         to="/App/Profile"
         className={({ isActive }) =>
-          `text-center flex flex-col no-underline hover:underline items-center ${isActive ? "text-black bg-blue-300 rounded-full " : "text-gray-900"
+          `text-center flex flex-col items-center ${isActive ? "text-black border-t-2 border-blue-500 " : "text-gray-900"
           }`
         }
       >

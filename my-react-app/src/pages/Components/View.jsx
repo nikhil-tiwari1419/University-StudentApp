@@ -18,7 +18,7 @@ function View() {
     <div
       className={`h-full min-h-screen mx-auto max-w-md w-full pb-20 rounded 
   ${theme === "dark"
-          ? "bg-gray-900 text-white" : "text-black app-background "
+          ? "bg-gray-900 text-white" : "text-black bg-[linear-gradient(180deg,_#eaf7f7_0%,_#b6e8f9_40%,_#cfd8fc_70%,_#f7d0f9_100%)]"
         } `}>
 
       <h2 className="items-center flex flex-col pt-4 font-bold text-lg underline-offset-4"> All Colleges / Cources</h2>

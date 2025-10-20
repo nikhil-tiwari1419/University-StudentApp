@@ -35,8 +35,8 @@ function Profile() {
   }
 
   return (
-    <div className={`min-h-screen mx-auto max-w-md w-full pb-20  ${theme === "dark" ? "bg-gray-800 text-white" : "app-background text-black"}`}>
-      <h2 className={`text-center text-xl font-semibold pt-5 pb-3 ${theme === 'dark' ? "text-white ":"text-black"}`}> My Profile</h2>
+    <div className={`min-h-screen mx-auto max-w-md w-full pb-20  ${theme === "dark" ? "bg-gray-800 text-white" : "bg-[linear-gradient(180deg,_#eaf7f7_0%,_#b6e8f9_40%,_#cfd8fc_70%,_#f7d0f9_100%)] text-black"}`}>
+      <h2 className={`text-center text-2xl pt-2 pb-3 ${theme === 'dark' ? "text-white ":"text-black"}`}> My Profile</h2>
 
 
       <div className='text-black flex flex-col items-center mb-6'>
@@ -51,14 +51,14 @@ function Profile() {
         <h3 className={`text-xl font-bold mt-2 ${theme === "dark" ? "text-white" : "text-black"}`}>Brime O'corno</h3>
         <p className="text-sm text-yellow-500">BrimeO'corno@mail.com</p>
       </div>
-      <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-xl shadow-2xl'>
+      <div className='space-y-5 pr-2 pl-2 border p-2 m-6 rounded border-gray-400 shadow-2xl'>
         <MenuItem icon={<FaFileInvoice />} label="My info" onClick={handleGetMyinfo}   theme={theme}/>
         <MenuItem icon={<FaLock />} label="Change password" onClick={handlepass}  theme={theme} />
         <MenuItem icon={<FaWallet />} label="Wallet" onClick={handleGetWallet}  theme={theme} />
         <MenuItem icon={<FaAddressCard />} label="About Us" onClick={hangelAboutus}   theme={theme}/>
         <MenuItem icon={<MdPrivacyTip />} label="Privacy Policy" onClick={handelGetPrivacy}  theme={theme} />
       </div>
-      <div className='space-y-6 pr-4 pl-4 border p-2 m-6 rounded-xl shadow-2xl'>
+      <div className='space-y-6 pr-2 pl-2 border p-2 m-6 border-gray-400 rounded shadow-2xl'>
         {/* notificatio toggle */}
         <MenuItem
           icon={<FaBell />}
@@ -85,7 +85,7 @@ function Profile() {
   );
 }
 const MenuItem = ({ icon, label, color, onClick, rightContent,theme }) => (
-  <div className={`flex justify-between items-center p-2 rounded-xl cursor-pointer ${theme === "dark" ? "text-white hover:border border-white" : "text-blue-900 hover:border border-blue-600" }`}>
+  <div className={`flex justify-between items-center p-2 rounded cursor-pointer ${theme === "dark" ? "text-white hover:border border-white" : "text-blue-900 hover:border border-blue-600" }`}>
     <div className="flex items-center space-x-8">
       <div className={`text-lg ${color}`}>{icon}</div>
       <span className={`font-medium ${color}`}>{label}</span>

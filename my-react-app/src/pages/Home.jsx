@@ -101,7 +101,7 @@ function Home() {
 
         {open && (
           <div
-            className={`fixed px-7 z-50 left-0 pt-2 p-3 top-4 rounded-r-2xl flex flex-col h-full w-64 transform transition-transform duration-500 ease-in-out 
+            className={`fixed px-5.5 z-50 left-0 pt-2 p-3 top-1 rounded-r-2xl flex flex-col h-full w-64 transform transition-transform duration-500 ease-in-out 
             ${theme === "dark" ? "bg-gray-700 text-white" : "bg-white/90 text-black"}
             ${open ? "translate-x-0" : "-translate-x-full"}`}
           >

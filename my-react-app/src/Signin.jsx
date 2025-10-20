@@ -49,7 +49,7 @@ function Signin() {
 
     return (
         <div className="flex mx-auto max-w-md w-full items-center justify-center min-h-screen bg-gradient-to-b from-blue-300 to-pink-300">
-            <div className="h-[690px] w-[360px] backdrop-blur-md bg-white/50 rounded-lg shadow-md p-8">
+            <div className="h-[650px] w-[360px] backdrop-blur-md bg-white/50 rounded-lg shadow-md p-8">
                 <h2 className="text-black text-3xl font-bold text-center mb-2"> Welcome Back</h2>
                 <button onClick={handleGetfirst}>
                     <BsArrowLeftShort className='text-black text-3xl cursor-pointer' />
@@ -125,7 +125,7 @@ function Signin() {
                         </button>
                     </p>
                 </form>
-                <img className='mx-auto h-60 pt-10 w-52' src={SignupImg} alt="login_img" />
+                <img className='mx-auto h-50 pt-10 w-52' src={SignupImg} alt="login_img" />
 
             </div>
         </div>

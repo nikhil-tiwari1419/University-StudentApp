@@ -51,7 +51,7 @@ function ForgotPass() {
 
 
     return (
-        <div className="bg-gradient-to-b mx-auto max-w-md w-full text-black app-background min-h-screen overflow-hidden px-4 py-5 ">
+        <div className="bg-gradient-to-b mx-auto max-w-md w-full text-black bg-[linear-gradient(180deg,_#eaf7f7_0%,_#b6e8f9_40%,_#cfd8fc_70%,_#f7d0f9_100%)] min-h-screen overflow-hidden px-4 py-5 ">
             {step === 1 && (
                 <div
                     className="text-center">
@@ -144,7 +144,7 @@ function ForgotPass() {
                     />
                     <div
                         onClick={toggleNewPasswordVisibility}
-                        className=" fixed top-115 right-13 transform -translate-y-1/2 cursor-pointer text-gray-600"
+                        className=" absolute top-115 right-13 transform -translate-y-1/2 cursor-pointer text-gray-600"
                     >
                         {seeNewPassword ? <FaEye /> : <FaEyeSlash />}
                     </div>
@@ -157,7 +157,7 @@ function ForgotPass() {
                     />
                     <div
                         onClick={toggleConfirmPasswordVisibility}
-                        className=" fixed top-132 right-13 transform -translate-y-1/2 cursor-pointer text-gray-600"
+                        className=" absolute top-132 right-13 transform -translate-y-1/2 cursor-pointer text-gray-600"
                     >
                         {seeConfirmPassword ? <FaEye /> : <FaEyeSlash />}
                     </div>

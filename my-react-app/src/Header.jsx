@@ -18,7 +18,7 @@ function Header() {
         <h1 className="text-4xl font-bold bg-gradient-to-r from-red-600 via-purple-500 to-blue-600 bg-clip-text text-transparent">
           RTMNU <h2 className="text-2xl">Student App</h2>
         </h1>
-        <div className="w-[360px] h-[770px] bg-white rounded-lg shadow-lg p-6">
+        <div className="w-[360px] h-[670px] bg-white rounded-lg shadow-lg p-6">
           <img src={graduationImage} alt="graduation image" />
           <br />
           <h4 className="text-black text-2xl py-12">

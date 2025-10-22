@@ -128,7 +128,6 @@ function Home() {
               onMouseMove={() => setAboutInfo(false)} //hovet khatam 
             >
               <IoIosContact className="text-3xl mx-2" />
-
               About Developer
             </span>
             {AboutInfo && (
@@ -161,10 +160,10 @@ function Home() {
             )}
             {/* change password  */}
             <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex"
-            onClick={() => navigation("/App/ChangePass")}
+              onClick={() => navigation("/App/ChangePass")}
             >
-             < FaLock className="text-2xl mx-3"/>
-             Change password
+              < FaLock className="text-2xl mx-3" />
+              Change password
             </span>
           </div>
         )}
@@ -178,6 +177,7 @@ function Home() {
             : "bg-white text-black"
           }`}
       >
+
         <div className="flex items-center space-x-4">
           <img
             src={ProfileImg}
@@ -190,11 +190,10 @@ function Home() {
           Find Colleges Affilited by RTMNU !
         </p>
 
+
         {/* Search Box */}
         <div className="flex flex-col w-fullrelative max-w-md mt-5">
-          {/* <div className="p-2 border rounded-2xl  transform translate active:translate-y-1 flex items-center cursor-pointer">
-            Search
-          </div> */}
+
           <div className="flex items-center flex-grow gap-1.5 border border-gray-400 rounded-md py-2 px-3 ">
             <FaSearch className="text-sm items-center" />
             <input
@@ -242,6 +241,7 @@ function Home() {
         ))}
       </div>
 
+
       {/* Categories */}
       <div className="flex justify-between space-x-3 items-center mt-15 mb-2">
         <h3 className="font-bold">Courses</h3>
@@ -249,6 +249,7 @@ function Home() {
           <button onClick={() => navigation("/App/View")}>View all</button> &gt;
         </span>
       </div>
+
 
       <div className="flex z-0 overflow-x-auto  no-scrollbar">
         <CategoryCard title="B.Tech / B.E" bg="bg-pink-300" />
@@ -262,6 +263,7 @@ function Home() {
         <CategoryCard title="M.tech" bg="bg-pink-300" />
         <CategoryCard title="Nursing" bg="bg-blue-300" />
       </div>
+
 
       {/* Notifications */}
       <div
@@ -284,6 +286,8 @@ function Home() {
   );
 }
 
+
+
 const CategoryCard = ({ title, bg }) => (
   <div
     className={`min-w-[120px] h-[100px] ${bg} mx-auto w-full max-w-md cursor-pointer flex items-center justify-center  rounded-xl shadow-md px-5 text-center`}
@@ -291,5 +295,6 @@ const CategoryCard = ({ title, bg }) => (
     <span className="text-xl">{title}</span>
   </div>
 );
+
 
 export default Home;

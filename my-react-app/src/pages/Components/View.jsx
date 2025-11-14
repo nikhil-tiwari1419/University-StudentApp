@@ -11,7 +11,7 @@ function View() {
     fetch("https://raw.githubusercontent.com/nikhil-tiwari1419/CollegeData/main/College.json")
       .then((res) => res.json())
       .then((data) => setColleges(data))
-      .catch((err) => console.err("Error Featching colleges : ", err))
+      .catch((err) => console.error("Error Fetching colleges : ", err))
   }, []);
 
   return (

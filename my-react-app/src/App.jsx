@@ -5,9 +5,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./MainLayout";
 import Header from "./Header";
-import Signin from "./Signin";
+import EmailVerify from "./EmailVerify";
 import Signup from "./Signup";
-import ForgotPass from "./ForgotPass";
 import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Explore from "./pages/Explore";
@@ -20,21 +19,23 @@ import ChangePass from "./pages/Components/ChangePass";
 import AboutUs from "./pages/Components/AboutUs";
 import View from "./pages/Components/View";
 
+import { ToastContainer } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
 
   return (
     <BrowserRouter>
+      <ToastContainer />
       <Routes>
         {/* get started page hai ye  */}
         <Route path="/" element={<Header />} />
         {/* Sign up page */}
         <Route path="/Signup" element={<Signup />} />
         {/* login page */}
-        <Route path="/Signin" element={<Signin />} />
-        {/* forgot password  */}
-        <Route path="/ForgotPass" element={<ForgotPass />} />
+        <Route path="/EmailVerify" element={<EmailVerify />} />
+
 
 
         {/* Main app Routes */}

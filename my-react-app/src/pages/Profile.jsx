@@ -53,7 +53,7 @@ function Profile() {
       </div>
       <div className='space-y-5 pr-2 pl-2 border p-2 m-6 rounded border-gray-400 shadow-2xl'>
         <MenuItem icon={<FaFileInvoice />} label="My info" onClick={handleGetMyinfo}   theme={theme}/>
-        <MenuItem icon={<FaLock />} label="Change password" onClick={handlepass}  theme={theme} />
+        <MenuItem icon={<FaLock />} label="Forgot password" onClick={handlepass}  theme={theme} />
         <MenuItem icon={<FaWallet />} label="Wallet" onClick={handleGetWallet}  theme={theme} />
         <MenuItem icon={<FaAddressCard />} label="About Us" onClick={hangelAboutus}   theme={theme}/>
         <MenuItem icon={<MdPrivacyTip />} label="Privacy Policy" onClick={handelGetPrivacy}  theme={theme} />

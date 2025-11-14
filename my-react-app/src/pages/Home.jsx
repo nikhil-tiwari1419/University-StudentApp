@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Hamburger from "hamburger-react";
 import { useTheme } from "../context/ThemeContext"; // ✅ ThemeContext se theme import
 
@@ -17,7 +17,12 @@ import { MdSunny } from "react-icons/md";
 import { IoSettingsSharp } from "react-icons/io5";
 import { IoIosContact } from "react-icons/io";
 import { BsFillTelephoneForwardFill } from "react-icons/bs";
-import { FaLock } from "react-icons/fa";
+import { FaLock, FaRegUser } from "react-icons/fa";
+import { TbLogin2 } from "react-icons/tb";
+import { AppContext } from "../context/AppContext";
+import { toast } from "react-toastify";
+import axios from "axios";
+import { use } from "react";
 
 
 function Home() {
@@ -25,6 +30,7 @@ function Home() {
   const [query, setQuery] = useState("");
   const [colleges, setColleges] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
+
 
   // fetching JSON file 
   useEffect(() => {
@@ -75,11 +81,41 @@ function Home() {
   const { theme, toggleTheme } = useTheme(); // ✅ ThemeContext se theme state aa rahi hai
   const [AboutInfo, setAboutInfo] = useState(false);
   const [ContactInfo, setContactInfo] = useState(false);
+  const [Menuopen, setMenuopen] = useState(false);
 
-  // 
-  // const handlepass = () => {
-  //   navigate("/App/ChangePass")
-  // }
+  // backend logic
+  const { userData, backendUrl, setUserData, setIsLoggedin } = useContext(AppContext);
+
+  const SendVerificationOtp = async () => {
+    try {
+      axios.defaults.withCredentials = true;
+
+      const { data } = await axios.post(backendUrl + '/api/auth/send-verify-otp');
+
+      if (data.success) {
+        toast.success(data.message)
+        navigation('/EmailVerify')
+      } else {
+        toast.error(data.message)
+      }
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+  };
+
+  const LogOut = async () => {
+    try {
+      axios.defaults.withCredentials = true
+      const { data } = await axios.post(backendUrl + '/api/auth/logout')
+      data.success && setIsLoggedin(false)
+      data.success && setUserData(false)
+      navigation('/')
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
   return (
     <div
       className={`overflow-y-auto h-full mx-auto max-w-md w-full min-h-screen px-4 py-3 space-y-3 pb-20 transition-all duration-500 
@@ -97,15 +133,61 @@ function Home() {
       >
         <Hamburger size={24} toggled={open} toggle={setOpen} />
         <h2 className="mx-3 font-bold">RTMNU Student App</h2>
-        <img src={graducationImg} className="h-10 w-30 " alt="" />
+        <img src={graducationImg} className="h-10 w-20 " alt="" />
 
         {open && (
           <div
             className={`fixed px-5.5 z-50 left-0 pt-2 p-3 top-1 rounded-r-2xl flex flex-col h-full w-64 transform transition-transform duration-500 ease-in-out 
-            ${theme === "dark" ? "bg-gray-700 text-white" : "bg-white/90 text-black"}
+            ${theme === "dark" ? "bg-gray-700 text-white" : "bg-white text-black"}
             ${open ? "translate-x-0" : "-translate-x-full"}`}
           >
             <Hamburger size={24} toggled={open} toggle={setOpen} />
+            {/* Login  */}
+            <span className="font-extrabold text-black rounded-xl border-2 px-3 py-2">
+              {userData ? (
+                <div
+                  className="relative group flex items-center gap-2 cursor-pointer select-none"
+                  onMouseEnter={() => setMenuopen(true)}
+                  onMouseLeave={() => setMenuopen(false)}
+                  onClick={() => setMenuopen(!Menuopen)} // tap toggle
+                >
+                  <FaRegUser className="text-2xl hover:text-blue-700 " />
+                  <span className="text-sm ">Welcome</span>
+                  <div
+                    onClick={() => setMenuopen(!Menuopen)} // tap toggle
+                    className="text-xl font-bold text-blue-600 bg-gray-200 px-3 py-1 rounded-full">
+                    {userData.name[0].toUpperCase()}
+                  </div>
+
+                  {Menuopen && (
+                    <ul className="absolute top-7 right-0 bg-white shadow-lg rounded-xl text-blue-800 text-sm w-36 py-1 z-20">
+                      {!userData.IsAccountVerified && (
+                        <li
+                          className="px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer"
+                          onClick={SendVerificationOtp}
+                        >
+                          Verify Email
+                        </li>
+                      )}
+                      <li
+                        className="px-4 py-2 hover:bg-gray-100 rounded-lg cursor-pointer text-red-500"
+                        onClick={LogOut}
+                      >
+                        Sign Out
+                      </li>
+                    </ul>
+                  )}
+                </div>
+              ) : (
+                <button
+                  onClick={() => navigation('/Signup')}
+                  className="flex items-center gap-2 hover:text-blue-700"
+                >
+                  <TbLogin2 className="text-2xl" /> Sign In
+                </button>
+              )}
+            </span>
+
 
             {/* Day/Night Toggle */}
             <span className="hover:text-emerald-600 font-bold p-2">
@@ -131,7 +213,7 @@ function Home() {
               About Developer
             </span>
             {AboutInfo && (
-              <div className="absolute left-17 mt-17 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
+              <div className="absolute left-17 mt-34 w-48 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
                 <p className="font-semibold"> Nikhil Tiwari</p>
                 <a href="https://github.com/nikhil-tiwari1419"
                   target="_blank"
@@ -151,22 +233,23 @@ function Home() {
               Contact
             </span>
             {ContactInfo && (
-              <div className="absolute left-17 mt-20 w-78 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
+              <div className="absolute left-17 mt-36 w-78 bg-white text-sm text-gray-700 border rounded-lg shadow-lg p-2 z-10">
                 <p className="font-semibold"> Nikhil Tiwari</p>
-                <p>Ph📞: 7057320974</p>
+                <p>Ph📞:--------------</p>
                 <p>Add📍:- Nagpur maharastra</p>
-                <p>Email-Id📩:-nikhiltiwari1425@gmail.com</p>
+                <p>Email-Id📩:-developernikhil14@gmail.com</p>
               </div>
             )}
-            {/* change password  */}
-            <span className="hover:text-emerald-600 font-bold cursor-pointer p-2 flex"
+            {/* forgotPassword */}
+            <span className="hover:text-emerald-600 font-bold underline cursor-pointer p-2 flex"
               onClick={() => navigation("/App/ChangePass")}
             >
-              < FaLock className="text-2xl mx-3" />
-              Change password
+              < FaLock className="text-2xl mx-3 " />
+              Forget password
             </span>
           </div>
         )}
+        {/* end of Hamburger ✅ */}
       </header>
 
       {/* Profile Card */}
@@ -184,7 +267,7 @@ function Home() {
             alt="young-man-profile img"
             className="w-14 h-14 rounded-full object-cover"
           />
-          <h2 className="text-2xl font-bold">Hello, Brime </h2>
+          <h2 className="text-2xl font-bold">Hi_{userData ? userData.name : 'User'} ! </h2>
         </div>
         <p className="text-sm pt-2 py-2 px-10 flex items-center">
           Find Colleges Affilited by RTMNU !

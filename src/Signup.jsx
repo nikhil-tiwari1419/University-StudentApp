@@ -7,6 +7,8 @@ import { AppContext } from "./context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+      axios.defaults.withCredentials = true;
+
 function Signup() {
   const { backendUrl, setIsLoggedin, getUserData } = useContext(AppContext);
   const navigation = useNavigate();
@@ -35,7 +37,7 @@ function Signup() {
         "2. Include symbols like @ , _ , # , * and/or numbers."
       );
       setValidPassword(false);
-    } else if (value.length > 15) {
+    } else if (value.length > 13) {
       setError("Password must not be more than 13 characters.");
       setValidPassword(false);
     } else {
@@ -53,12 +55,12 @@ function Signup() {
   };
 
   // Backend logic from hear 
+  
   const onSubmitHandler = async (e) => {
     e.preventDefault();
 
     try {
       axios.defaults.withCredentials = true;
-
       if (mode === "signup") {
         const { data } = await axios.post(`${backendUrl}/api/auth/register`, {
           name,
@@ -78,7 +80,7 @@ function Signup() {
         const { data } = await axios.post(`${backendUrl}/api/auth/login`, {
           email,
           password,
-        });
+        },{withCredentials: true});
 
         if (data.success) {
           setIsLoggedin(true);

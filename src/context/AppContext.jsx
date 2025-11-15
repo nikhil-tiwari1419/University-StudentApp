@@ -14,7 +14,8 @@ export const AppContextProvider = (props) => {
 
   const getAuthState = async () => {
     try {
-      const { data } = await axios.get(backendUrl + '/api/auth/is-auth',{ withCredentials: true });
+      const { data } = await axios.get(backendUrl + '/api/auth/is-auth', { withCredentials: true });
+      console.log(backendUrl);
       if (data.success) {
         setIsLoggedin(true);
         getUserData();
@@ -23,7 +24,7 @@ export const AppContextProvider = (props) => {
       toast.error(error.response?.data?.message || "Failed to check auth");
     }
   };
-  
+
   // getting [user-data] from Database
   const getUserData = async () => {
     try {

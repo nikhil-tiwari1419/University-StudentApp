@@ -7,7 +7,7 @@ import { AppContext } from "./context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-      axios.defaults.withCredentials = true;
+      // axios.defaults.withCredentials = true;
 
 function Signup() {
   const { backendUrl, setIsLoggedin, getUserData } = useContext(AppContext);

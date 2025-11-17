@@ -8,7 +8,7 @@ export const AppContext = createContext();
 axios.defaults.withCredentials = true;
 
 export const AppContextProvider = (props) => {
-  const backendUrl ='https://universityserver-1.onrender.com';
+  const backendUrl =import.meta.env.VITE_BACKEND_URL;
   const [isLoggedin, setIsLoggedin] = useState(false);
   const [userData, setUserData] = useState(null);
 
